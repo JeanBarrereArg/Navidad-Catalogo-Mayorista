@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller de Nochebuena · Colección Navidad 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#0d2a20; --pine-2:#123a2c; --night:#071812;
+  --cream:#f7f0e3; --paper:#fbf7ef; --ink:#1d1a16;
+  --gold:#e0ac4a; --gold-2:#f5d48b; --berry:#c8352d; --berry-2:#e0564c;
+  --kraft:#c99f73; --kraft-2:#b8895d; --muted:#6f6658;
+  --r:18px;
+  --shadow:0 18px 40px -18px rgba(8,24,18,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Outfit",system-ui,sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.display{font-family:"Fraunces",serif;font-optical-sizing:auto}
+.hand{font-family:"Caveat",cursive}
+
+/* ---------- Nieve ---------- */
+#snow{position:fixed;inset:0;pointer-events:none;z-index:60}
+
+/* ---------- Cinta superior ---------- */
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(7,24,18,.88);backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid rgba(224,172,74,.18)}
+.nav{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.4rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit}
+.logo-mark{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold) 55%,#a87522);display:grid;place-items:center;color:var(--night);font-family:"Fraunces";font-weight:800;font-style:italic;box-shadow:0 0 18px rgba(224,172,74,.45)}
+.logo b{font-family:"Fraunces";font-weight:600;font-size:1.15rem;letter-spacing:.01em;display:block;line-height:1}
+.logo small{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;opacity:.6}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.switch{display:flex;align-items:center;gap:.5rem;font-size:.8rem;opacity:.9;padding:.45rem .75rem;border-radius:99px;border:1px solid rgba(247,240,227,.18)}
+.switch i{width:30px;height:17px;border-radius:99px;background:#38483f;position:relative;transition:.3s}
+.switch i::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#cfd6d1;transition:.3s}
+.switch[aria-pressed="true"] i{background:var(--gold)}
+.switch[aria-pressed="true"] i::after{left:15px;background:#fff;box-shadow:0 0 10px var(--gold-2)}
+.cart-btn{display:flex;align-items:center;gap:.55rem;background:var(--gold);color:var(--night);font-weight:600;padding:.6rem 1rem;border-radius:99px;transition:transform .2s}
+.cart-btn:hover{transform:translateY(-2px)}
+.cart-count{background:var(--night);color:var(--gold-2);min-width:22px;height:22px;border-radius:99px;display:grid;place-items:center;font-size:.75rem;padding:0 6px}
+.cart-btn.bump{animation:bump .5s}
+@keyframes bump{30%{transform:scale(1.15) rotate(-4deg)}60%{transform:scale(.95) rotate(3deg)}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:
+  radial-gradient(900px 500px at 80% 10%,rgba(224,172,74,.14),transparent 60%),
+  radial-gradient(700px 500px at 10% 90%,rgba(200,53,45,.16),transparent 60%),
+  linear-gradient(180deg,var(--night),var(--pine) 70%,var(--pine-2));color:var(--cream);overflow:hidden;padding-bottom:6rem}
+.garland{position:absolute;top:0;left:0;width:100%;height:120px;z-index:2}
+.garland .wire{fill:none;stroke:#2c3b33;stroke-width:3}
+.bulb{transition:opacity .4s, filter .4s}
+body.lights .bulb{animation:twinkle 2.4s ease-in-out infinite}
+body:not(.lights) .bulb ellipse{fill:#4b554f !important}
+body:not(.lights) .bulb{filter:none !important}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+.hero-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;padding:9rem 1.4rem 0;position:relative;z-index:3;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-2)}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero h1{font-family:"Fraunces";font-weight:500;font-size:clamp(2.8rem,6.4vw,5.6rem);line-height:.95;letter-spacing:-.02em;margin:1.2rem 0 1.4rem}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--gold-2);position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.05em;height:.09em;background:linear-gradient(90deg,var(--berry),var(--gold));border-radius:9px;transform-origin:left;animation:underline 1.4s .6s both cubic-bezier(.7,0,.2,1)}
+@keyframes underline{from{transform:scaleX(0)}}
+.hero p.lead{font-size:1.15rem;line-height:1.6;max-width:30rem;opacity:.85;font-weight:300}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;margin:2rem 0 2.6rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.6rem;border-radius:99px;font-weight:600;text-decoration:none;transition:transform .2s, box-shadow .2s, background .2s}
+.btn-gold{background:var(--gold);color:var(--night);box-shadow:0 10px 30px -10px rgba(224,172,74,.8)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 36px -10px rgba(224,172,74,.9)}
+.btn-ghost{border:1px solid rgba(247,240,227,.35);color:var(--cream)}
+.btn-ghost:hover{background:rgba(247,240,227,.08)}
+.countdown{display:flex;gap:.7rem;align-items:flex-end}
+.countdown .cell{background:rgba(247,240,227,.06);border:1px solid rgba(247,240,227,.12);border-radius:14px;padding:.7rem .9rem;min-width:72px;text-align:center}
+.countdown .num{font-family:"Fraunces";font-size:2rem;font-weight:600;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.countdown .lbl{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:.3rem}
+.countdown-title{font-size:.85rem;opacity:.75;margin-bottom:.7rem}
+.countdown-title b{color:var(--gold-2);font-weight:500}
+
+/* Polaroids colgantes */
+.hang-stage{position:relative;height:560px}
+.polaroid{position:absolute;background:#fff;padding:12px 12px 46px;border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transform-origin:50% -120px;animation:sway 6s ease-in-out infinite;cursor:pointer}
+.polaroid::before{content:"";position:absolute;left:50%;top:-140px;width:1.5px;height:140px;background:linear-gradient(var(--gold-2),rgba(245,212,139,.4))}
+.polaroid::after{content:"";position:absolute;left:calc(50% - 7px);top:-10px;width:14px;height:14px;border-radius:50%;border:3px solid var(--gold);background:var(--night)}
+.polaroid img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.polaroid .hand{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:var(--ink);font-size:1.45rem}
+.p1{width:250px;height:290px;left:2%;top:120px;--rot:-6deg;animation-delay:-1s}
+.p2{width:270px;height:310px;left:36%;top:40px;--rot:3deg;animation-delay:-3s;z-index:2}
+.p3{width:230px;height:270px;right:0;top:200px;--rot:7deg;animation-delay:-4.5s}
+@keyframes sway{0%,100%{transform:rotate(calc(var(--rot) - 2deg))}50%{transform:rotate(calc(var(--rot) + 2deg))}}
+.hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:110px;z-index:4}
+
+/* ---------- Beneficios ---------- */
+
+/* ---------- Catálogo ---------- */
+.section{max-width:1280px;margin:auto;padding:6rem 1.4rem 2rem}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.section-head h2{font-family:"Fraunces";font-weight:500;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;letter-spacing:-.02em}
+.section-head h2 em{color:var(--berry);font-weight:400}
+.section-head p{color:var(--muted);max-width:26rem;line-height:1.55}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem;position:sticky;top:64px;z-index:20;padding:.8rem 0;background:linear-gradient(var(--paper) 75%,rgba(251,247,239,0))}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{padding:.55rem 1.05rem;border-radius:99px;border:1px solid #e4d8c2;background:#fff;font-size:.9rem;transition:.25s;display:flex;align-items:center;gap:.45rem}
+.chip small{font-size:.72rem;opacity:.55}
+.chip:hover{border-color:var(--pine)}
+.chip.active{background:var(--pine);color:var(--cream);border-color:var(--pine)}
+.sort{padding:.55rem 1rem;border-radius:99px;border:1px solid #e4d8c2;background:#fff;font:inherit;font-size:.9rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:4.2rem 2rem}
+.card{position:relative;transform-origin:50% -46px;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.card:nth-child(odd){transform:rotate(-.8deg)}
+.card:nth-child(even){transform:rotate(.9deg)}
+.card:hover{animation:swing 1.6s ease-in-out}
+@keyframes swing{0%{transform:rotate(0)}20%{transform:rotate(3deg)}45%{transform:rotate(-2.2deg)}70%{transform:rotate(1.2deg)}100%{transform:rotate(0)}}
+.card .string{position:absolute;left:50%;top:-46px;width:1.5px;height:46px;background:linear-gradient(#c9b48a,#8f7a52)}
+.card .bow{position:absolute;left:50%;top:-58px;transform:translateX(-50%);width:34px;height:20px;z-index:2}
+.card-body{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 2px 0 #eadfca, var(--shadow);transition:box-shadow .3s}
+.card:hover .card-body{box-shadow:0 2px 0 #eadfca,0 30px 60px -22px rgba(8,24,18,.55)}
+.thumb{position:relative;aspect-ratio:4/3.3;overflow:hidden;background:#efe6d6;cursor:zoom-in}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.card:hover .thumb img{transform:scale(1.07)}
+.badge{position:absolute;top:14px;left:14px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.38rem .7rem;border-radius:99px;background:var(--berry);color:#fff;z-index:2}
+.badge.gold{background:var(--gold);color:var(--night)}
+.badge.green{background:var(--pine);color:var(--cream)}
+.quick{position:absolute;inset:auto auto 14px 14px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);padding:.5rem .85rem;border-radius:99px;font-size:.8rem;font-weight:600;opacity:0;transform:translateY(8px);transition:.3s}
+.card:hover .quick{opacity:1;transform:none}
+/* Etiqueta kraft de precio */
+.tag{position:absolute;right:16px;top:-22px;z-index:3;background:var(--kraft);color:#2b1f12;padding:.5rem 1rem .5rem 1.5rem;clip-path:polygon(14px 0,100% 0,100% 100%,14px 100%,0 50%);transform:rotate(4deg);box-shadow:0 6px 14px -6px rgba(0,0,0,.4);filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.tag::before{content:"";position:absolute;left:12px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#fff;box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+.tag .hand{font-size:1.55rem;font-weight:700;line-height:1;display:block}
+.tag s{font-size:.75rem;opacity:.65;display:block;line-height:1}
+.info{padding:1.6rem 1.3rem 1.3rem;position:relative}
+.cat{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--berry);font-weight:600}
+.info h3{font-family:"Fraunces";font-weight:600;font-size:1.32rem;line-height:1.15;margin:.35rem 0 .45rem}
+.info p{font-size:.92rem;color:var(--muted);line-height:1.5;min-height:2.9em}
+.stock{margin-top:.9rem;font-size:.78rem;color:var(--muted)}
+.stock .bar{height:5px;border-radius:9px;background:#f0e7d6;margin-top:.35rem;overflow:hidden}
+.stock .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--berry),var(--gold));border-radius:9px}
+.card-foot{display:flex;gap:.6rem;margin-top:1.1rem;align-items:center}
+.add{flex:1;display:flex;justify-content:center;align-items:center;gap:.5rem;background:var(--pine);color:var(--cream);padding:.85rem 1rem;border-radius:14px;font-weight:600;font-size:.93rem;transition:.25s;position:relative;overflow:hidden}
+.add:hover{background:var(--berry)}
+.add.done{background:#2f7a4f}
+.mini-var{font-size:.78rem;color:var(--muted);margin-top:.6rem}
+.empty{grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)}
+
+/* ---------- Combo ---------- */
+.combo{max-width:1280px;margin:5rem auto 0;padding:0 1.4rem}
+.combo-box{border-radius:32px;background:
+  radial-gradient(600px 300px at 90% 0%,rgba(224,172,74,.25),transparent 60%),
+  linear-gradient(135deg,#7e1d18,var(--berry));color:#fff;display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden;position:relative}
+.combo-box::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1.2px,transparent 1.4px);background-size:22px 22px;pointer-events:none}
+.combo-txt{padding:3.2rem;position:relative;z-index:1}
+.combo-txt h2{font-family:"Fraunces";font-weight:500;font-size:clamp(2rem,3.8vw,3.2rem);line-height:1;margin:1rem 0}
+.combo-txt h2 em{color:var(--gold-2)}
+.combo-txt ul{list-style:none;margin:1.4rem 0;display:grid;gap:.55rem}
+.combo-txt li{display:flex;gap:.6rem;align-items:center;opacity:.95}
+.combo-txt li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:.75rem}
+.tag small{font-size:.7rem;font-weight:600;margin-left:.2rem}
+.print-note{margin-top:1rem;font-size:.85rem;opacity:.85;max-width:30rem}
+.print-note.drawer{margin:.8rem 0 0;padding:.6rem .8rem;border-radius:12px;background:#fbf3e2;color:#5a4325;opacity:1;font-size:.8rem}
+.combo-price{display:flex;align-items:baseline;gap:1rem;margin:1.6rem 0}
+.combo-price b{font-family:"Fraunces";font-size:2.8rem;font-weight:600}
+.combo-price s{opacity:.6}
+.combo-price .save{background:var(--gold);color:var(--night);font-weight:700;padding:.3rem .7rem;border-radius:99px;font-size:.85rem}
+.combo-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:10px;position:relative;z-index:1;min-height:420px}
+.combo-imgs img{width:100%;height:100%;object-fit:cover;border-radius:20px}
+.combo-imgs img:first-child{grid-row:span 2}
+
+/* ---------- Footer ---------- */
+.wa-note{display:flex;gap:.8rem;align-items:center;margin-top:1.4rem;max-width:34rem;padding:.8rem 1.1rem;border-radius:16px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.45);color:var(--cream);font-size:.93rem;line-height:1.45}
+.wa-note b{color:#7CFC9A;font-weight:600}
+.wa-dot{font-size:1.4rem}
+.wa-end{max-width:1280px;margin:0 auto 3rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;padding:1.8rem 2rem;border-radius:24px;background:linear-gradient(135deg,#0f3b25,#145233);border:1px solid rgba(37,211,102,.5)}
+.wa-end h3{font-family:"Fraunces";font-weight:500;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.1}
+.wa-end p{opacity:.8;margin-top:.4rem;font-size:.95rem}
+.btn-wa{background:#25d366;color:#06361a;font-weight:700;box-shadow:0 10px 30px -10px rgba(37,211,102,.8)}
+.btn-wa:hover{transform:translateY(-3px)}
+footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1.4rem 2rem;position:relative}
+.foot{max-width:1280px;margin:auto;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.foot h4{font-family:"Fraunces";font-size:2rem;font-weight:500;max-width:22rem;line-height:1.1}
+.foot h4 em{color:var(--gold-2)}
+.foot p{opacity:.65;font-size:.9rem;line-height:1.7}
+.copy{max-width:1280px;margin:3rem auto 0;padding-top:1.4rem;border-top:1px solid rgba(247,240,227,.1);font-size:.8rem;opacity:.5;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(7,24,18,.6);backdrop-filter:blur(6px);z-index:70;opacity:0;pointer-events:none;transition:opacity .35s}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{position:fixed;left:50%;top:50%;width:min(980px,94vw);max-height:92vh;overflow:auto;background:var(--paper);border-radius:28px;z-index:80;display:grid;grid-template-columns:1.1fr 1fr;transform:translate(-50%,-46%) scale(.96);opacity:0;pointer-events:none;transition:.4s cubic-bezier(.2,.9,.3,1.1)}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.m-gal{padding:14px}
+.m-main{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:#efe6d6}
+.m-main img{width:100%;height:100%;object-fit:cover}
+.m-thumbs{display:flex;gap:8px;margin-top:10px}
+.m-thumbs button{width:74px;height:74px;border-radius:12px;overflow:hidden;border:2px solid transparent;opacity:.7}
+.m-thumbs button.on{border-color:var(--berry);opacity:1}
+.m-thumbs img{width:100%;height:100%;object-fit:cover}
+.m-info{padding:2.4rem 2.2rem 2rem 1rem;display:flex;flex-direction:column}
+.m-info h3{font-family:"Fraunces";font-size:2.1rem;font-weight:500;line-height:1.05;margin:.4rem 0 .9rem}
+.m-info .desc{color:var(--muted);line-height:1.6}
+.m-feats{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0}
+.m-feats span{font-size:.78rem;padding:.35rem .7rem;border-radius:99px;background:#f0e5cf}
+.opt-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1rem 0 .5rem}
+.vars{display:flex;flex-wrap:wrap;gap:.5rem}
+.vars button{padding:.6rem .95rem;border-radius:12px;border:1.5px solid #e2d5bd;background:#fff;font-size:.9rem;text-align:left;line-height:1.2}
+.vars button small{display:block;font-size:.75rem;color:var(--muted)}
+.vars button.on{border-color:var(--pine);background:var(--pine);color:#fff}
+.vars button.on small{color:var(--gold-2)}
+.m-buy{display:flex;align-items:center;gap:.8rem;margin-top:auto;padding-top:1.6rem}
+.qty{display:flex;align-items:center;border:1.5px solid #e2d5bd;border-radius:14px;background:#fff}
+.qty button{width:40px;height:46px;font-size:1.2rem}
+.qty span{min-width:26px;text-align:center;font-weight:600}
+.m-price{font-family:"Fraunces";font-size:2rem;font-weight:600;margin-top:1rem}
+.m-price small{font-family:"Outfit";font-size:.85rem;font-weight:400;color:var(--muted);margin-left:.4rem}
+.x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12);font-size:1.3rem;z-index:2}
+
+/* ---------- Trineo (carrito) ---------- */
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100vw);background:var(--paper);z-index:80;transform:translateX(105%);transition:transform .5s cubic-bezier(.2,.9,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px -20px rgba(0,0,0,.4)}
+.drawer.open{transform:none}
+.d-head{background:var(--pine);color:var(--cream);padding:1.4rem 1.5rem;position:relative}
+.d-head h3{font-family:"Fraunces";font-weight:500;font-size:1.7rem}
+.d-head .x{background:rgba(255,255,255,.12);color:#fff;box-shadow:none}
+.ship{margin-top:1rem;font-size:.85rem}
+.ship .bar{height:8px;border-radius:9px;background:rgba(255,255,255,.14);margin-top:.5rem;overflow:hidden}
+.ship .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:9px;transition:width .6s cubic-bezier(.2,.9,.2,1)}
+.d-body{flex:1;overflow:auto;padding:1.2rem 1.5rem}
+.line{display:grid;grid-template-columns:72px 1fr auto;gap:.9rem;align-items:center;padding:.9rem 0;border-bottom:1px dashed #e2d5bd;animation:pop .4s}
+@keyframes pop{from{opacity:0;transform:translateX(20px)}}
+.line img{width:72px;height:72px;border-radius:12px;object-fit:cover}
+.line b{font-size:.95rem;display:block;line-height:1.2}
+.line small{color:var(--muted);font-size:.8rem}
+.line .qty{margin-top:.4rem;width:max-content;border-radius:10px}
+.line .qty button{width:30px;height:30px;font-size:1rem}
+.line .lp{text-align:right;font-weight:600}
+.line .rm{font-size:.75rem;color:var(--berry);margin-top:.3rem;text-decoration:underline}
+.d-empty{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.d-empty .big{font-size:3.4rem;margin-bottom:.6rem}
+.gift{display:flex;gap:.7rem;align-items:center;background:#f3e7cf;border-radius:14px;padding:.85rem 1rem;margin-top:1rem;font-size:.9rem;cursor:pointer}
+.gift input{accent-color:var(--berry);width:18px;height:18px}
+.d-foot{padding:1.2rem 1.5rem 1.5rem;border-top:1px solid #eadfca;background:#fff}
+.tot{display:flex;justify-content:space-between;font-size:.92rem;color:var(--muted);margin:.25rem 0}
+.tot.big{font-size:1.25rem;color:var(--ink);font-weight:700;margin-top:.6rem}
+.tot.big span:last-child{font-family:"Fraunces"}
+.checkout{width:100%;margin-top:1rem;background:var(--berry);color:#fff;padding:1.05rem;border-radius:16px;font-weight:600;font-size:1rem;transition:.25s}
+.checkout:hover{background:#a92820}
+.checkout:disabled{opacity:.4;cursor:not-allowed}
+.form label{display:block;font-size:.82rem;font-weight:500;margin:1rem 0 .35rem}
+.form input,.form textarea{width:100%;padding:.8rem .95rem;border-radius:12px;border:1.5px solid #e2d5bd;background:#fff;font:inherit;font-size:.95rem}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--pine)}
+.form .err{border-color:var(--berry)}
+.radios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.radios label{margin:0;border:1.5px solid #e2d5bd;border-radius:12px;padding:.75rem;background:#fff;cursor:pointer;font-size:.88rem}
+.radios label:has(input:checked){border-color:var(--pine);background:#eef3ef}
+.radios input{accent-color:var(--pine);margin-right:.35rem}
+.back{font-size:.85rem;color:var(--muted);text-decoration:underline;margin-bottom:.4rem}
+.done{text-align:center;padding:2rem .5rem}
+.gift-anim{width:120px;height:120px;margin:0 auto 1rem;position:relative}
+.gift-anim .box{position:absolute;bottom:0;left:15px;width:90px;height:66px;background:var(--berry);border-radius:6px}
+.gift-anim .box::before{content:"";position:absolute;left:38px;top:0;width:14px;height:100%;background:var(--gold)}
+.gift-anim .lid{position:absolute;bottom:62px;left:8px;width:104px;height:22px;background:#a92820;border-radius:6px;animation:lid 1s .3s both cubic-bezier(.3,1.6,.5,1)}
+.gift-anim .lid::before{content:"";position:absolute;left:45px;top:0;width:14px;height:100%;background:var(--gold)}
+@keyframes lid{to{transform:translate(18px,-40px) rotate(22deg)}}
+.gift-anim .star{position:absolute;left:50%;bottom:50px;font-size:2.2rem;transform:translateX(-50%);animation:rise 1.2s .7s both}
+@keyframes rise{from{opacity:0;transform:translate(-50%,30px) scale(.3)}to{opacity:1;transform:translate(-50%,-30px) scale(1)}}
+.done h4{font-family:"Fraunces";font-size:1.9rem;font-weight:500;line-height:1.1}
+.done .order{display:inline-block;margin:1rem 0;font-family:monospace;background:#f3e7cf;padding:.45rem .8rem;border-radius:8px}
+.done p{color:var(--muted);line-height:1.55}
+.wa{display:flex;justify-content:center;align-items:center;gap:.6rem;background:#25d366;color:#fff;padding:1rem;border-radius:16px;font-weight:600;text-decoration:none;margin-top:1.4rem}
+
+/* ---------- Toast + vuelo ---------- */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,220px);visibility:hidden;background:var(--night);color:var(--cream);padding:.9rem 1.2rem;border-radius:16px;z-index:90;display:flex;gap:.7rem;align-items:center;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,1.4,.4,1);font-size:.92rem}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+.toast b{color:var(--gold-2)}
+.flyer{position:fixed;z-index:95;border-radius:14px;object-fit:cover;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.burst{position:fixed;pointer-events:none;z-index:96;font-size:18px;animation:burst 1.1s forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rz));opacity:0}}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;translate:0 40px;transition:opacity .9s, translate .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;translate:0 0}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr;padding-top:7.5rem}
+  .hang-stage{height:420px;margin-top:1rem}
+  .p1{width:190px;height:220px;left:max(0px,calc(50% - 310px));top:110px}.p2{width:210px;height:240px;left:calc(50% - 105px);top:40px}.p3{width:180px;height:210px;left:calc(50% + 120px);right:auto;top:140px}
+  .combo-box{grid-template-columns:1fr}
+  .modal{grid-template-columns:1fr}
+  .m-info{padding:1rem 1.6rem 1.8rem}
+}
+@media (max-width:560px){
+  .switch .t{display:none}
+  .cart-btn .t{display:none}
+  .logo small{display:none}
+  .hang-stage{height:360px}
+  .p1{width:108px;height:136px;left:0;top:100px}.p2{width:126px;height:154px;left:calc(50% - 63px);top:40px}.p3{width:102px;height:130px;left:auto;right:0;top:130px}
+  .polaroid{padding:8px 8px 34px}.polaroid .hand{font-size:.85rem}
+  .countdown .cell{min-width:60px;padding:.6rem}
+  .countdown .num{font-size:1.5rem}
+  .combo-txt{padding:2rem 1.5rem}
+  .toolbar{top:58px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+/* WhatsApp flotante */
+.wa-fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;align-items:center;justify-content:center;gap:0;width:60px;height:60px;padding:0;box-sizing:border-box;background:#25d366;color:#fff;text-decoration:none;font-weight:700;border-radius:50%;box-shadow:0 10px 26px rgba(0,0,0,.4);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08);box-shadow:0 14px 34px rgba(37,211,102,.5)}
+.wa-fab svg{flex:none;display:block}
+.wa-fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPulse 2.2s ease-out infinite;pointer-events:none}
+@keyframes waPulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
+@media(max-width:600px){.wa-fab{right:14px;bottom:14px}}
+</style>
+</head>
+<body class="lights">
+
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo" aria-label="Inicio">
+      <span class="logo-mark">N</span>
+      <span><b>Taller de Nochebuena</b><small>Colección Navidad 2026</small></span>
+    </a>
+    <div class="nav-actions">
+      <button class="switch" id="lightSwitch" aria-pressed="true" title="Encender / apagar luces">
+        <i></i><span class="t">Luces</span>
+      </button>
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir trineo">
+        <svg width="22" height="18" viewBox="0 0 26 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4h4l3 9h11l3-7H8"/><path d="M5 17c4 2 14 2 19-1"/></svg>
+        <span class="t">Tu trineo</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="garland" id="garland" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wire" id="wire" d="M-20,8 Q150,96 320,22 T660,22 T1000,22 T1340,22"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Edición limitada · Navidad 2026</span>
+      <h1>La magia de Navidad, <em>pieza por pieza.</em></h1>
+      <p class="lead">Diseñados e impresos en 3D en nuestro taller: adornos, centros de mesa y siluetas para que tu casa se sienta Nochebuena desde el primer día de diciembre. Diseños originales, en cantidades limitadas.</p>
+      <div class="cta-row">
+        <a href="#catalogo" class="btn btn-gold">Ver el catálogo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M3 9l5 5 5-5"/></svg></a>
+      </div>
+      <div class="wa-note"><span class="wa-dot">📲</span><span><b>Todos los pedidos se hacen únicamente por WhatsApp.</b> Armá tu trineo y lo enviás por el chat.</span></div>
+      <div class="countdown-title">Faltan para <b>Nochebuena</b></div>
+      <div class="countdown" id="countdown">
+        <div class="cell"><div class="num" id="cd-d">00</div><div class="lbl">días</div></div>
+        <div class="cell"><div class="num" id="cd-h">00</div><div class="lbl">horas</div></div>
+        <div class="cell"><div class="num" id="cd-m">00</div><div class="lbl">min</div></div>
+        <div class="cell"><div class="num" id="cd-s">00</div><div class="lbl">seg</div></div>
+      </div>
+    </div>
+
+    <div class="hang-stage" aria-label="Destacados">
+      <div class="polaroid p1" data-open="esquinero"><img src="img/03-esquinero-trineo.webp" alt="Esquinero Trineo Mágico"><span class="hand">para tu puerta 🚪</span></div>
+      <div class="polaroid p2" data-open="adornos"><img src="img/07-adornos-colores.webp" alt="Adornos de colores"><span class="hand">para el arbolito</span></div>
+      <div class="polaroid p3" data-open="estrellas"><img src="img/13-estrellas.webp" alt="Estrellas blancas"><span class="hand">¡nuevas!</span></div>
+    </div>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#fbf7ef" d="M0,60 C120,20 220,90 360,64 C500,38 560,96 720,70 C880,44 960,100 1110,66 C1260,32 1340,80 1440,56 L1440,110 L0,110 Z"/>
+  </svg>
+</section>
+
+<!-- ================= CATÁLOGO ================= -->
+<section class="section" id="catalogo">
+  <div class="section-head reveal">
+    <h2>El catálogo<br><em>de esta Navidad</em></h2>
+    <p>Elegí por ambiente: la mesa, los adornos o puertas y ventanas. Tocá cualquier foto para ver detalles y variantes.</p>
+  </div>
+
+  <div class="toolbar">
+    <div class="chips" id="chips"></div>
+    <select class="sort" id="sort" aria-label="Ordenar">
+      <option value="feat">Destacados</option>
+      <option value="asc">Menor precio</option>
+      <option value="desc">Mayor precio</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- ================= COMBO ================= -->
+<section class="combo reveal" id="combo">
+  <div class="combo-box">
+    <div class="combo-txt">
+      <span class="eyebrow" style="color:#fff">Combo de la temporada</span>
+      <h2>Mesa de <em>Nochebuena</em>, lista en un clic.</h2>
+      <p style="opacity:.85;line-height:1.6">Todo lo que necesitás para una mesa que se lleva todas las fotos de la noche del 24.</p>
+      <ul>
+        <li>Servilleteros rojos × 6</li>
+        <li>Posavasos navideño (1 unidad)</li>
+        <li>Bandejas Pino x 3</li>
+      </ul>
+      <div class="combo-price"><b id="comboPrice"></b></div>
+      <button class="btn btn-gold" id="comboBtn">Sumar el combo al trineo</button>
+      <p class="print-note">🖨️ Se imprime por encargo: entrega en 4 a 7 días. Pedidos hasta el 12/12.</p>
+    </div>
+    <div class="combo-imgs">
+      <img src="img/10-servilleteros-glitter.webp" alt="Servilleteros rojos">
+      <img src="img/09-posavasos.webp" alt="Posavasos">
+      <img src="img/12-bandejas-galletitas.webp" alt="Bandejas pino">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wa-end">
+    <div>
+      <h3>Los pedidos se realizan únicamente por WhatsApp</h3>
+      <p>Armá tu trineo, enviá el pedido por el chat y te pasamos los datos para la transferencia.</p>
+    </div>
+    <a class="btn btn-wa wa-link" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+      Escribinos por WhatsApp</a>
+  </div>
+  <div class="foot">
+    <h4>Que este año la casa <em>brille distinto.</em></h4>
+    <div>
+      <p><b>Atención</b><br>Lunes a sábado · 9 a 20 h<br>Pedidos únicamente por WhatsApp</p>
+    </div>
+    <div>
+      <p><b>Entregas</b><br>Retiro sin cargo<br>Envíos a todo el país</p>
+    </div>
+  </div>
+  <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios sugeridos en pesos argentinos (ARS)</span></div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <button class="x" data-close aria-label="Cerrar">×</button>
+  <div class="m-gal">
+    <div class="m-main"><img id="mImg" src="" alt=""></div>
+    <div class="m-thumbs" id="mThumbs"></div>
+  </div>
+  <div class="m-info">
+    <span class="cat" id="mCat"></span>
+    <h3 class="display" id="mTitle"></h3>
+    <p class="desc" id="mDesc"></p>
+    <div class="m-feats" id="mFeats"></div>
+    <div id="mVarsWrap"><div class="opt-label">Elegí tu opción</div><div class="vars" id="mVars"></div></div>
+    <div class="m-price" id="mPrice"></div>
+    <div class="m-buy">
+      <div class="qty"><button id="mMinus" aria-label="Menos">−</button><span id="mQty">1</span><button id="mPlus" aria-label="Más">+</button></div>
+      <button class="add" id="mAdd" style="padding:1rem">Sumar al trineo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TRINEO ================= -->
+<aside class="drawer" id="drawer" aria-label="Tu trineo">
+  <div class="d-head">
+    <button class="x" data-close aria-label="Cerrar">×</button>
+    <h3>Tu trineo 🛷</h3>
+    <div class="ship" id="ship"></div>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// >>> Cambiá este número por el de tu negocio (código de país + número, sin "+" ni espacios)
+const WA_NUMBER = "5491136826699";
+const WA_HELLO = "Hola! Quiero consultar por los adornos navideños 🎄";
+window.addEventListener("DOMContentLoaded",()=>{ const u="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_HELLO); document.getElementById("waFab").href=u; document.querySelectorAll(".wa-link").forEach(a=>a.href=u); });
+/* =========================================================
+   DATOS DEL CATÁLOGO (precios sugeridos ARS)
+   ========================================================= */
+const CATS = {
+  mesa:  "Mesa navideña",
+  deco:  "Adornos y figuras",
+  pared: "Puertas y ventanas"
+};
+
+const PRODUCTS = [
+  { id:"adornos", cat:"deco", name:"Adornos Trazo navideños x 7",
+    desc:"Siete adornos de línea continua en rojo, verde, amarillo y blanco: árbol, bola con corazón, Papá Noel, bastón, bota, vela y copo de nieve.",
+    imgs:["img/07-adornos-colores.webp"], badge:["Nuevo","gold"], stock:64,
+    feats:["Livianos y resistentes","Listos para colgar","4 colores"],
+    vars:[{l:"Set × 7",p:13200}] },
+
+  { id:"estrellas", cat:"deco", name:"Trio de estrellas Nordicas",
+    desc:"Tres estrellas blancas en distintos tamaños para vestir la repisa, el aparador o la mesa ratona con un estilo limpio y escandinavo.",
+    imgs:["img/13-estrellas.webp"], badge:["Nuevo","gold"], stock:30,
+    feats:["3 tamaños","Se paran solas","Blanco mate"],
+    vars:[{l:"Trío",p:6200}] },
+
+  { id:"esquinero", cat:"pared", name:"Esquinero “Trineo Mágico”",
+    desc:"Silueta negra para el marco de la puerta: Papá Noel en su trineo, renos al vuelo, duendes y el arbolito con el Merry Christmas. El adorno que todos fotografían.",
+    imgs:["img/03-esquinero-trineo.webp"], stock:9,
+    feats:["Calado detallado","Se fija con cinta doble faz (no incluida)","≈ 60 × 45 cm"],
+    vars:[{l:"Negro",p:10500}] },
+
+  { id:"servilleteros-glitter", cat:"mesa", name:"Servilleteros Rojos × 6",
+    desc:"Muñeco de nieve, estrella, Papá Noel, regalo y dos renos con brillo rojo. Cada invitado con su servilleta distinta.",
+    imgs:["img/10-servilleteros-glitter.webp"], badge:["Para la cena del 24","green"], stock:40,
+    feats:["6 diseños distintos","Filamento rojo con brillo","Reutilizables"],
+    vars:[{l:"Set × 6",p:13500}] },
+
+  { id:"duendes", cat:"deco", name:"Duendes de la Suerte × 4",
+    desc:"Cuatro gnomos en silueta con gorros a lunares, rayas y corazones: uno brinda, otro trae un chanchito, otro un trébol. Perfectos para Navidad y Año Nuevo.",
+    imgs:["img/05-duendes.webp"], badge:["Navidad + Año Nuevo","gold"], stock:18,
+    feats:["Base incluida","≈ 25 cm de alto","Negro mate"],
+    vars:[{l:"Set × 4",p:11400}] },
+
+  { id:"posavasos", cat:"mesa", name:"Posavasos Polo Norte", unit:true,
+    desc:"Posavasos negros con relieve, en cuatro diseños: Papá Noel, el reno, el muñeco de nieve y el arbolito. El precio es por unidad.",
+    imgs:["img/09-posavasos.webp"], badge:["Ideal para regalar",""], stock:35,
+    feats:["Con relieve","Base de goma antideslizante","Precio por unidad"],
+    vars:[{l:"Unidad",p:9500}] },
+
+  { id:"bandejas", cat:"mesa", name:"Bandejas Pino x 3",
+    desc:"Bandejitas decorativas con forma de pino para decorar la mesa o guardar llaves, velas y adornos. Se apilan y combinan en rojo y verde.",
+    imgs:["img/12-bandejas-galletitas.webp","img/11-bandejas-pino-a.webp"], badge:["Apilables","green"], stock:50,
+    feats:["Apilables","Rojo o verde","≈ 20 cm de largo"],
+    vars:[{l:"Set × 3",p:14900}] },
+
+  { id:"trio-pinos", cat:"deco", name:"Trios de Pinos",
+    desc:"Tres árboles de trazo negro con su base. Decoración minimalista que queda bien todo diciembre en un estante o escritorio.",
+    imgs:["img/02-trio-pinos.webp"], badge:["Minimalista","green"], stock:15,
+    feats:["Negro mate","Base incluida","≈ 25 cm de ancho"],
+    vars:[{l:"Negro",p:7200}] },
+
+  { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
+    desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. Se pegan y se despegan sin dejar marca.",
+    imgs:["img/01-vinilos-ventana.webp"], badge:["Fácil de colocar",""], stock:45,
+    feats:["Para vidrio o pared","Removibles"],
+    vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
+
+  { id:"servilleteros-calados", cat:"mesa", name:"Servilleteros Calados",
+    desc:"Estrella, casita de jengibre o pino con calado tipo encaje. Un detalle blanco que se destaca sobre servilletas rojas.",
+    imgs:["img/06-servilleteros-calados.webp"], badge:["Diseño exclusivo","gold"], stock:12,
+    feats:["Calado tipo encaje","3 diseños","Blanco"],
+    vars:[{l:"Estrella",p:25400},{l:"Casita de jengibre",p:27600},{l:"Pino",p:23900}] },
+
+  { id:"reno", cat:"mesa", name:"Servilletero Reno",
+    desc:"Anillo con astas de reno en verde petróleo. Simple, distinto y con mucha onda para una mesa moderna.",
+    imgs:["img/04-servilletero-reno.webp"], stock:6,
+    feats:["Verde petróleo","Liviano","Limpiar con paño húmedo"],
+    vars:[{l:"Unidad",p:11100}] },
+];
+
+const COMBO = { id:"combo-mesa", name:"Combo Mesa de Nochebuena", img:"img/10-servilleteros-glitter.webp",
+  parts:[13500,9500,14900] };
+COMBO.price = COMBO.parts.reduce((a,b)=>a+b,0);
+
+const SHIP_COST = 6500, GIFT_COST = 1500;
+
+/* ========================================================= */
+const $ = s => document.querySelector(s);
+const money = n => "$" + n.toLocaleString("es-AR");
+let filter = "all", sortBy = "feat";
+let cart = [];            // {key,id,name,var,price,qty,img}
+let giftWrap = false;
+let delivery = "Envío a domicilio";   // o "Retiro sin cargo"
+let step = "cart";        // cart | form | done
+let current = null, curVar = 0, curQty = 1;
+
+/* ---------- Chips ---------- */
+function renderChips(){
+  const all = [["all","Todo",PRODUCTS.length], ...Object.entries(CATS).map(([k,v])=>[k,v,PRODUCTS.filter(p=>p.cat===k).length])];
+  $("#chips").innerHTML = all.map(([k,v,n])=>`<button class="chip ${filter===k?"active":""}" data-f="${k}">${v} <small>${n}</small></button>`).join("");
+}
+$("#chips").addEventListener("click",e=>{
+  const b = e.target.closest(".chip"); if(!b) return;
+  filter = b.dataset.f; renderChips(); renderGrid();
+});
+$("#sort").addEventListener("change",e=>{ sortBy = e.target.value; renderGrid(); });
+
+/* ---------- Grilla ---------- */
+const bowSVG = `<svg class="bow" viewBox="0 0 34 20"><path d="M17 10 C10 0 2 2 3 9 C4 16 12 13 17 10 Z" fill="#c8352d"/><path d="M17 10 C24 0 32 2 31 9 C30 16 22 13 17 10 Z" fill="#c8352d"/><path d="M17 10 l-5 9 M17 10 l5 9" stroke="#a92820" stroke-width="2.5" stroke-linecap="round"/><circle cx="17" cy="10" r="3.2" fill="#e0ac4a"/></svg>`;
+
+function renderGrid(){
+  let list = PRODUCTS.filter(p=>filter==="all"||p.cat===filter);
+  if(sortBy==="asc") list = [...list].sort((a,b)=>a.vars[0].p-b.vars[0].p);
+  if(sortBy==="desc") list = [...list].sort((a,b)=>b.vars[0].p-a.vars[0].p);
+  $("#grid").innerHTML = list.length ? list.map(p=>{
+    const v = p.vars[0];
+    return `<article class="card reveal" data-id="${p.id}">
+      <span class="string"></span>${bowSVG}
+      <div class="card-body">
+        <div class="thumb" data-open="${p.id}">
+          ${p.badge?`<span class="badge ${p.badge[1]}">${p.badge[0]}</span>`:""}
+          <img src="${p.imgs[0]}" alt="${p.name}" decoding="async" onerror="imgRetry(this)">
+          <span class="quick">Ver detalle →</span>
+        </div>
+        <div class="info">
+          <div class="tag">${v.old?`<s>${money(v.old)}</s>`:""}<span class="hand">${p.vars.length>1?"desde ":""}${money(Math.min(...p.vars.map(x=>x.p)))}${p.unit?"<small>c/u</small>":""}</span></div>
+          <span class="cat">${CATS[p.cat]}</span>
+          <h3>${p.name}</h3>
+          <p>${p.desc.split(". ")[0].replace(/\.$/,"")}.</p>
+          ${p.vars.length>1?`<div class="mini-var">${p.vars.length} opciones disponibles</div>`:""}
+          <div class="card-foot">
+            <button class="add" data-add="${p.id}">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>
+              Sumar al trineo</button>
+          </div>
+        </div>
+      </div>
+    </article>`;
+  }).join("") : `<div class="empty">No hay productos en esta categoría.</div>`;
+  observeReveal();
+}
+
+$("#grid").addEventListener("click",e=>{
+  const add = e.target.closest("[data-add]");
+  if(add){
+    const p = PRODUCTS.find(x=>x.id===add.dataset.add);
+    const img = add.closest(".card").querySelector(".thumb img");
+    addToCart(p,0,1,img);
+    add.classList.add("done"); add.innerHTML = "✓ ¡En el trineo!";
+    setTimeout(()=>{ add.classList.remove("done"); add.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg> Sumar al trineo`; },1600);
+    return;
+  }
+  const open = e.target.closest("[data-open]");
+  if(open) openModal(open.dataset.open);
+});
+document.querySelectorAll(".polaroid").forEach(el=>el.addEventListener("click",()=>openModal(el.dataset.open)));
+
+/* ---------- Modal ---------- */
+function openModal(id){
+  current = PRODUCTS.find(p=>p.id===id); curVar = 0; curQty = 1;
+  const p = current;
+  $("#mImg").src = p.imgs[0]; $("#mImg").alt = p.name;
+  $("#mThumbs").innerHTML = p.imgs.length>1 ? p.imgs.map((s,i)=>`<button class="${i?"":"on"}" data-src="${s}"><img src="${s}" alt=""></button>`).join("") : "";
+  $("#mCat").textContent = CATS[p.cat];
+  $("#mTitle").textContent = p.name;
+  $("#mDesc").textContent = p.desc;
+  $("#mFeats").innerHTML = p.feats.map(f=>`<span>${f}</span>`).join("");
+  $("#mVarsWrap").style.display = p.vars.length>1 ? "" : "none";
+  renderModalVars();
+  $("#overlay").classList.add("open"); $("#modal").classList.add("open");
+}
+function renderModalVars(){
+  const p = current;
+  $("#mVars").innerHTML = p.vars.map((v,i)=>`<button class="${i===curVar?"on":""}" data-v="${i}">${v.l}<small>${money(v.p)}</small></button>`).join("");
+  const v = p.vars[curVar];
+  $("#mPrice").innerHTML = money(v.p*curQty) + (v.old?`<small><s>${money(v.old*curQty)}</s></small>`:"") + (curQty>1?`<small>${curQty} × ${money(v.p)}</small>`:"");
+  $("#mQty").textContent = curQty;
+}
+$("#mVars").addEventListener("click",e=>{ const b=e.target.closest("[data-v]"); if(!b) return; curVar=+b.dataset.v; renderModalVars(); });
+$("#mThumbs").addEventListener("click",e=>{ const b=e.target.closest("[data-src]"); if(!b) return;
+  $("#mImg").src=b.dataset.src; $("#mThumbs").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b)); });
+$("#mMinus").onclick=()=>{ curQty=Math.max(1,curQty-1); renderModalVars(); };
+$("#mPlus").onclick=()=>{ curQty=Math.min(20,curQty+1); renderModalVars(); };
+$("#mAdd").onclick=()=>{ addToCart(current,curVar,curQty,$("#mImg")); closeAll(); };
+
+function closeAll(){
+  ["#overlay","#modal","#drawer"].forEach(s=>$(s).classList.remove("open"));
+  if(step==="done"){ step="cart"; renderCart(); }
+}
+$("#overlay").onclick = closeAll;
+document.addEventListener("click",e=>{ if(e.target.closest("[data-close]")) closeAll(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
+
+/* ---------- Carrito ---------- */
+function addToCart(p,vi,qty,imgEl){
+  const v = p.vars[vi];
+  const key = p.id+"|"+vi;
+  const ex = cart.find(c=>c.key===key);
+  if(ex) ex.qty += qty;
+  else cart.push({key,id:p.id,name:p.name,var:p.vars.length>1?v.l:"",price:v.p,qty,img:p.imgs[0]});
+  flyToCart(imgEl);
+  toast(`<span>🎄</span><span><b>${p.name}</b> se subió al trineo</span>`);
+  renderCart();
+}
+function addCombo(){
+  const ex = cart.find(c=>c.key===COMBO.id);
+  if(ex) ex.qty++; else cart.push({key:COMBO.id,id:COMBO.id,name:COMBO.name,var:"Servilleteros × 6 · Posavasos × 1 · Bandejas Pino x 3",price:COMBO.price,qty:1,img:COMBO.img});
+  flyToCart(document.querySelector(".combo-imgs img"));
+  toast(`<span>🎁</span><span><b>Combo Mesa de Nochebuena</b> sumado al trineo</span>`);
+  renderCart();
+}
+$("#comboBtn").onclick = addCombo;
+$("#comboPrice").textContent = money(COMBO.price);
+
+function totals(){
+  const sub = cart.reduce((a,c)=>a+c.price*c.qty,0);
+  const ship = sub===0||delivery==="Retiro sin cargo" ? 0 : SHIP_COST;
+  const gift = giftWrap && sub ? GIFT_COST : 0;
+  return {sub,ship,gift,total:sub+ship+gift,count:cart.reduce((a,c)=>a+c.qty,0)};
+}
+
+function renderCart(){
+  const t = totals();
+  $("#cartCount").textContent = t.count;
+  $("#ship").innerHTML = step==="done" ? "Gracias por elegirnos ✨" : "";
+
+  if(step==="cart"){
+    if(!cart.length){
+      $("#dBody").innerHTML = `<div class="d-empty"><div class="big">🛷</div><b>Tu trineo está vacío</b><p style="margin-top:.4rem">Papá Noel todavía no cargó nada. ¡Elegí tus favoritos!</p></div>`;
+      $("#dFoot").innerHTML = `<button class="checkout" data-close>Ver el catálogo</button>`;
+      return;
+    }
+    $("#dBody").innerHTML = cart.map(c=>`
+      <div class="line">
+        <img src="${c.img}" alt="">
+        <div><b>${c.name}</b>${c.var?`<small>${c.var}</small>`:""}
+          <div class="qty"><button data-q="-1" data-k="${c.key}">−</button><span>${c.qty}</span><button data-q="1" data-k="${c.key}">+</button></div>
+        </div>
+        <div class="lp">${money(c.price*c.qty)}<br><button class="rm" data-rm="${c.key}">Quitar</button></div>
+      </div>`).join("") +
+      `<label class="gift"><input type="checkbox" id="giftChk" ${giftWrap?"checked":""}> 🎀 <span>Envolver para regalo <b>(+${money(GIFT_COST)})</b></span></label>`;
+    $("#dFoot").innerHTML = `
+      <div class="tot"><span>Subtotal</span><span>${money(t.sub)}</span></div>
+      <div class="tot"><span>Envío</span><span>${t.ship?money(t.ship):"Sin cargo"}</span></div>
+      ${t.gift?`<div class="tot"><span>Envoltorio</span><span>${money(t.gift)}</span></div>`:""}
+      <div class="tot big"><span>Total</span><span>${money(t.total)}</span></div>
+      <div class="tot" style="font-size:.8rem"><span>Pago por transferencia</span><span>Te pasamos los datos por WhatsApp</span></div>
+      <div class="print-note drawer">🖨️ Se imprime por encargo: entrega en 4 a 7 días. Pedidos hasta el 12/12.</div>
+      <button class="checkout" id="toForm">Continuar para pedir por WhatsApp →</button>`;
+  }
+  if(step==="form"){
+    $("#dBody").innerHTML = `
+      <button class="back" id="backCart">← Volver al trineo</button>
+      <form class="form" id="orderForm" novalidate>
+        <label for="fName">Nombre y apellido</label><input id="fName" placeholder="Ej: Sofía Gómez">
+        <label>Entrega</label>
+        <div class="radios">
+          <label><input type="radio" name="ent" value="Envío a domicilio" ${delivery==="Envío a domicilio"?"checked":""}>Envío a domicilio</label>
+          <label><input type="radio" name="ent" value="Retiro sin cargo" ${delivery==="Retiro sin cargo"?"checked":""}>Retiro sin cargo</label>
+        </div>
+      </form>`;
+    renderFormFoot();
+  }
+  if(step==="done"){
+    const o = lastOrder;
+    $("#dBody").innerHTML = `
+      <div class="done">
+        <div class="gift-anim"><div class="star">⭐</div><div class="box"></div><div class="lid"></div></div>
+        <h4>¡Gracias, ${o.name.split(" ")[0]}!<br>Tu pedido está listo para enviar.</h4>
+        <span class="order">${o.id}</span>
+        <p>Se abrió WhatsApp con tu pedido y el total a transferir (<b>${money(o.total)}</b>). Enviá el mensaje y te pasamos los datos para la transferencia y coordinamos la ${o.ent==="Retiro sin cargo"?"fecha de retiro":"entrega"} 🎄</p>
+        <p style="font-size:.85rem;opacity:.7">¿No se abrió? Tocá el botón de abajo.</p>
+        <a class="wa" href="${o.wa}" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+          Enviar pedido por WhatsApp</a>
+      </div>`;
+    $("#dFoot").innerHTML = `<button class="checkout" data-close style="background:var(--pine)">Seguir mirando</button>`;
+  }
+}
+
+let lastOrder = null;
+$("#drawer").addEventListener("click",e=>{
+  const q = e.target.closest("[data-q]");
+  if(q){ const c = cart.find(x=>x.key===q.dataset.k); c.qty += +q.dataset.q; if(c.qty<1) cart = cart.filter(x=>x!==c); renderCart(); return; }
+  const rm = e.target.closest("[data-rm]");
+  if(rm){ cart = cart.filter(x=>x.key!==rm.dataset.rm); renderCart(); return; }
+  if(e.target.closest("#toForm")){ step="form"; renderCart(); return; }
+  if(e.target.closest("#backCart")){ step="cart"; renderCart(); return; }
+  if(e.target.closest("#confirm")) confirmOrder();
+});
+$("#drawer").addEventListener("change",e=>{
+  if(e.target.id==="giftChk"){ giftWrap=e.target.checked; renderCart(); }
+  if(e.target.name==="ent"){ delivery=e.target.value; renderFormFoot(); }
+});
+
+function renderFormFoot(){
+  const t = totals();
+  $("#dFoot").innerHTML = `
+    <div class="tot"><span>Subtotal</span><span>${money(t.sub)}</span></div>
+    <div class="tot"><span>Envío</span><span>${t.ship?money(t.ship):"Sin cargo"}</span></div>
+    ${t.gift?`<div class="tot"><span>Envoltorio</span><span>${money(t.gift)}</span></div>`:""}
+    <div class="tot big"><span>Total a transferir</span><span>${money(t.total)}</span></div>
+    <button class="checkout" id="confirm" style="background:#25d366;color:#06361a">Enviar pedido por WhatsApp</button>`;
+}
+
+function confirmOrder(){
+  const n=$("#fName");
+  const bad = n.value.trim().length<3; n.classList.toggle("err",bad);
+  if(bad){ toast(`<span>✋</span><span>Completá tu <b>nombre</b> para enviar el pedido</span>`); return; }
+  const t = totals();
+  const ent = delivery;
+  const id = "NAV-26-" + Math.floor(1000+Math.random()*9000);
+  const lines = cart.map(c=>`• ${c.qty} × ${c.name}${c.var?` (${c.var})`:""} — ${money(c.price*c.qty)}`).join("\n");
+  const msg =
+`¡Hola! Quiero hacer este pedido navideño 🎄
+Pedido: ${id}
+
+${lines}
+
+Subtotal: ${money(t.sub)}
+${t.gift?`Envoltorio para regalo: ${money(t.gift)}\n`:""}Entrega: ${ent}${t.ship?` (${money(t.ship)})`:" (sin cargo)"}
+*TOTAL A TRANSFERIR: ${money(t.total)}*
+
+Nombre: ${n.value.trim()}
+
+Entiendo que los adornos se imprimen por encargo (entrega en 4 a 7 días).
+¿Me pasás los datos para hacer la transferencia? ¡Gracias! 🙏`;
+  const url = "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg);
+  lastOrder = {id,name:n.value.trim(),ent,total:t.total,wa:url};
+  window.open(url,"_blank","noopener");
+  cart = []; giftWrap = false; step = "done";
+  renderCart(); $("#cartCount").textContent = 0;
+  celebrate();
+}
+
+$("#cartBtn").onclick = ()=>{ renderCart(); $("#overlay").classList.add("open"); $("#drawer").classList.add("open"); };
+
+/* ---------- Efectos ---------- */
+/* Si una foto falla al cargar, reintenta hasta 2 veces */
+function imgRetry(el){ const n=+(el.dataset.try||0); if(n>=2) return; el.dataset.try=n+1; const s=el.getAttribute("src").split("?")[0]; setTimeout(()=>{ el.src=s+"?r="+Date.now(); }, 600*(n+1)); }
+let toastT;
+function toast(html){ const t=$("#toast"); t.innerHTML=html; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"),2600); }
+
+function flyToCart(img){
+  const btn = $("#cartBtn");
+  if(!img || matchMedia("(prefers-reduced-motion: reduce)").matches){ btn.classList.add("bump"); setTimeout(()=>btn.classList.remove("bump"),500); return; }
+  const a = img.getBoundingClientRect(), b = btn.getBoundingClientRect();
+  const f = document.createElement("img"); f.src = img.src; f.className = "flyer";
+  const w = Math.min(a.width,180), h = Math.min(a.height,150);
+  Object.assign(f.style,{left:(a.left+a.width/2-w/2)+"px",top:(a.top+a.height/2-h/2)+"px",width:w+"px",height:h+"px"});
+  document.body.appendChild(f);
+  const dx = b.left+b.width/2-(a.left+a.width/2), dy = b.top+b.height/2-(a.top+a.height/2);
+  f.animate([
+    {transform:"translate(0,0) scale(1) rotate(0)",opacity:1},
+    {transform:`translate(${dx*.5}px,${dy*.5-80}px) scale(.55) rotate(-12deg)`,opacity:1,offset:.55},
+    {transform:`translate(${dx}px,${dy}px) scale(.08) rotate(20deg)`,opacity:.6}
+  ],{duration:850,easing:"cubic-bezier(.5,0,.3,1)"}).onfinish = ()=>{
+    f.remove(); btn.classList.add("bump"); setTimeout(()=>btn.classList.remove("bump"),500); sparkle(b.left+b.width/2,b.top+b.height/2,8);
+  };
+}
+function sparkle(x,y,n){
+  const icons=["✦","❄","★","✧","❅"];
+  for(let i=0;i<n;i++){
+    const s=document.createElement("span"); s.className="burst"; s.textContent=icons[i%icons.length];
+    const ang=Math.random()*Math.PI*2, d=40+Math.random()*90;
+    s.style.left=x+"px"; s.style.top=y+"px";
+    s.style.color=["#e0ac4a","#c8352d","#fff","#2f7a4f"][i%4];
+    s.style.setProperty("--dx",Math.cos(ang)*d+"px"); s.style.setProperty("--dy",Math.sin(ang)*d+"px"); s.style.setProperty("--rz",(Math.random()*360)+"deg");
+    document.body.appendChild(s); setTimeout(()=>s.remove(),1100);
+  }
+}
+function celebrate(){
+  const r = $("#drawer").getBoundingClientRect();
+  [0,250,500].forEach(d=>setTimeout(()=>sparkle(r.left+r.width/2, r.top+180, 22),d+600));
+}
+
+/* ---------- Guirnalda de luces ---------- */
+function buildGarland(){
+  const svg=$("#garland"), path=$("#wire"), len=path.getTotalLength();
+  const colors=["#ff5a4e","#f5d48b","#4fd18b","#ffffff","#ffb347"];
+  const step=46; let i=0;
+  for(let l=20;l<len;l+=step,i++){
+    const p=path.getPointAtLength(l), p2=path.getPointAtLength(Math.min(len,l+1));
+    const ang=Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
+    const c=colors[i%colors.length];
+    const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.setAttribute("class","bulb");
+    g.setAttribute("transform",`translate(${p.x},${p.y}) rotate(${ang + (i%2?8:-8)})`);
+    g.style.animationDelay=(Math.random()*2.4).toFixed(2)+"s";
+    g.style.filter=`drop-shadow(0 0 6px ${c})`;
+    g.innerHTML=`<rect x="-3" y="1" width="6" height="6" rx="1" fill="#2c3b33"/><ellipse cx="0" cy="14" rx="5.5" ry="9" fill="${c}"/>`;
+    svg.appendChild(g);
+  }
+}
+$("#lightSwitch").onclick = e=>{
+  const on = document.body.classList.toggle("lights");
+  e.currentTarget.setAttribute("aria-pressed",on);
+  toast(on?`<span>💡</span><span>¡Luces <b>encendidas</b>!</span>`:`<span>🌙</span><span>Luces apagadas</span>`);
+};
+
+/* ---------- Cuenta regresiva ---------- */
+function tick(){
+  const target = new Date(2026,11,24,21,0,0); // 24/12 21 h
+  let ms = Math.max(0,target-new Date());
+  const d=Math.floor(ms/864e5); ms%=864e5;
+  const h=Math.floor(ms/36e5); ms%=36e5;
+  const m=Math.floor(ms/6e4); const s=Math.floor(ms%6e4/1e3);
+  [["#cd-d",d],["#cd-h",h],["#cd-m",m],["#cd-s",s]].forEach(([id,v])=>$(id).textContent=String(v).padStart(2,"0"));
+}
+
+/* ---------- Nieve ---------- */
+function snow(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c=$("#snow"), ctx=c.getContext("2d"); let W,H,flakes=[];
+  const resize=()=>{ W=c.width=innerWidth; H=c.height=innerHeight; };
+  resize(); addEventListener("resize",resize);
+  const N = innerWidth<600?45:90;
+  for(let i=0;i<N;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.6+.6,s:Math.random()*.6+.25,w:Math.random()*Math.PI*2,o:Math.random()*.5+.35});
+  (function loop(){
+    ctx.clearRect(0,0,W,H);
+    const dark = scrollY < innerHeight*.9;
+    for(const f of flakes){
+      f.y+=f.s; f.w+=.01; f.x+=Math.sin(f.w)*.35;
+      if(f.y>H){ f.y=-5; f.x=Math.random()*W; }
+      ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+      ctx.fillStyle = dark ? `rgba(255,255,255,${f.o})` : `rgba(190,205,215,${f.o*.55})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* ---------- Reveal on scroll ---------- */
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12});
+function observeReveal(){ document.querySelectorAll(".reveal:not(.in)").forEach((el,i)=>{ el.style.transitionDelay=(el.classList.contains("card")?(i%4)*90:0)+"ms"; io.observe(el); }); }
+
+/* ---------- Init ---------- */
+renderChips(); renderGrid(); renderCart(); buildGarland(); tick(); setInterval(tick,1000); snow(); observeReveal();
+</script>
+<a class="wa-fab" id="waFab" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16.04 3C8.86 3 3.04 8.82 3.04 16c0 2.29.6 4.52 1.74 6.49L3 29l6.7-1.76A12.95 12.95 0 0 0 16.04 29C23.22 29 29 23.18 29 16S23.22 3 16.04 3zm0 23.7c-1.95 0-3.86-.53-5.53-1.52l-.4-.24-3.98 1.04 1.06-3.88-.26-.4A10.64 10.64 0 0 1 5.36 16c0-5.9 4.8-10.7 10.68-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.66 10.7zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.5-.16-.72.16-.2.32-.83 1.05-1.02 1.27-.19.2-.38.24-.7.08-.32-.16-1.36-.5-2.58-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.66.15-.14.32-.38.48-.57.16-.19.2-.32.32-.54.1-.22.05-.4-.03-.56-.08-.16-.72-1.74-.98-2.38-.26-.62-.52-.54-.72-.55h-.62c-.22 0-.56.08-.86.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.3 3.32c.16.22 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.2 2.02.12.62-.1 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.2-.62-.36z"/></svg></a>
+</body>
+</html>
