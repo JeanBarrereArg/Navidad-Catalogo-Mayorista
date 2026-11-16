@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taller de Nochebuena · Catálogo Mayorista Navidad 2026</title>
+<title>Taller de Nochebuena · Catálogo Navidad 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -314,7 +314,7 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 .wa-fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPulse 2.2s ease-out infinite;pointer-events:none}
 @keyframes waPulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
 @media(max-width:600px){.wa-fab{right:14px;bottom:14px}}
-/* ---------- Mayorista ---------- */
+/* ---------- Pedido y entrega ---------- */
 header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filter:none}
 .logo-mark{box-shadow:none}
 .cd-mini{display:flex;align-items:center;gap:.7rem}
@@ -350,7 +350,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
   <nav class="nav">
     <a href="#" class="logo" aria-label="Inicio">
       <span class="logo-mark">N</span>
-      <span><b>Taller de Nochebuena</b><small>Catálogo mayorista · Navidad 2026</small></span>
+      <span><b>Taller de Nochebuena</b><small>Colección Navidad 2026</small></span>
     </a>
     <div class="nav-actions">
       <div class="cd-mini" id="countdown" aria-label="Cuenta regresiva a Nochebuena">
@@ -382,8 +382,8 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
 <!-- ================= CATÁLOGO ================= -->
 <section class="section" id="catalogo">
   <div class="section-head reveal">
-    <h2>Catálogo <em>mayorista</em></h2>
-    <p>Precios por mayor en pesos argentinos. Tocá cualquier foto para ver detalles y variantes.</p>
+    <h2>El catálogo <em>de esta Navidad</em></h2>
+    <p>Precios en pesos argentinos. Tocá cualquier foto para ver detalles y variantes.</p>
   </div>
 
   <div class="toolbar">
@@ -401,7 +401,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
 <footer>
   <div class="wa-end">
     <div>
-      <h3>Pedidos mayoristas únicamente por WhatsApp</h3>
+      <h3>Los pedidos se realizan únicamente por WhatsApp</h3>
       <p>Armá tu pedido (mínimo $300.000), enviálo por el chat y coordinamos la seña del 15% y la entrega a domicilio.</p>
     </div>
     <a class="btn btn-wa wa-link" target="_blank" rel="noopener">
@@ -420,7 +420,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
       <p><b>Pagos</b><br>Seña del 15%<br>Transferencia o efectivo</p>
     </div>
   </div>
-  <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios mayoristas en pesos argentinos (ARS)</span></div>
+  <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios en pesos argentinos (ARS)</span></div>
 </footer>
 
 <!-- ================= MODAL ================= -->
@@ -461,7 +461,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
 <script>
 // >>> Cambiá este número por el de tu negocio (código de país + número, sin "+" ni espacios)
 const WA_NUMBER = "5491136826699";
-const WA_HELLO = "Hola! Quiero consultar por el catálogo mayorista navideño 🎄";
+const WA_HELLO = "Hola! Quiero consultar por los adornos navideños 🎄";
 window.addEventListener("DOMContentLoaded",()=>{ const u="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_HELLO); document.getElementById("waFab").href=u; document.querySelectorAll(".wa-link").forEach(a=>a.href=u); });
 /* =========================================================
    DATOS DEL CATÁLOGO (precios sugeridos ARS)
@@ -760,7 +760,7 @@ function confirmOrder(){
   const id = "NAV-26-" + Math.floor(1000+Math.random()*9000);
   const lines = cart.map(c=>`• ${c.qty} × ${c.name}${c.var?` (${c.var})`:""} — ${money(c.price*c.qty)}`).join("\n");
   const msg =
-`¡Hola! Quiero hacer este pedido mayorista 🎄
+`¡Hola! Quiero hacer este pedido navideño 🎄
 Pedido: ${id}
 
 ${lines}

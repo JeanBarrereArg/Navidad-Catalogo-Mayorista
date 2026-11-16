@@ -1,6 +1,6 @@
-# Taller de Nochebuena · Catálogo Mayorista Navidad 2026
+# Taller de Nochebuena · Catálogo Navidad 2026
 
-Catálogo web estático de adornos navideños para clientes mayoristas.
+Catálogo web estático de adornos navideños para pedidos por cantidad.
 
 - Pedido mínimo: $300.000 (se pueden combinar productos)
 - Seña del 15% (transferencia o efectivo)
