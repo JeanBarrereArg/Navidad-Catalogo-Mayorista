@@ -523,8 +523,8 @@ const PRODUCTS = [
     vars:[{l:"Negro",p:7200}] },
 
   { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
-    desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. No incluye la tira para colgar.",
-    imgs:["img/01-adornos-colgantes.webp"], wide:true, stock:45,
+    desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. No incluye la tira para colgar. La foto muestra los diseños disponibles. El kit trae 5.",
+    imgs:["img/01-adornos-colgantes.webp"], thumb:"img/01-adornos-ventana.webp", wide:true, stock:45,
     feats:["Para vidrio o pared","Sin tira para colgar"],
     vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
 
@@ -577,7 +577,7 @@ function renderGrid(){
       <div class="card-body">
         <div class="thumb" data-open="${p.id}">
           ${p.badge?`<span class="badge ${p.badge[1]}">${p.badge[0]}</span>`:""}
-          <img src="${p.imgs[0]}" alt="${p.name}" decoding="async" onerror="imgRetry(this)">
+          <img src="${p.thumb||p.imgs[0]}" alt="${p.name}" decoding="async" onerror="imgRetry(this)">
           <span class="quick">Ver detalle →</span>
         </div>
         <div class="info">
