@@ -317,8 +317,13 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 /* ---------- Mayorista ---------- */
 header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filter:none}
 .logo-mark{box-shadow:none}
-.mini-cd{font-size:.82rem;white-space:nowrap;opacity:.95}
-.mini-cd b{font-weight:600;font-variant-numeric:tabular-nums}
+.cd-mini{display:flex;align-items:center;gap:.7rem}
+.cd-title{font-size:.78rem;line-height:1.15;text-align:right;opacity:.9}
+.cd-title b{font-family:"Fraunces",serif;font-weight:500;color:var(--gold-2);font-size:.95rem}
+.cd-cells{display:flex;gap:.4rem}
+.cd-cells .cell{background:rgba(0,0,0,.18);border:1px solid rgba(247,240,227,.25);border-radius:10px;padding:.3rem .4rem;min-width:46px;text-align:center}
+.cd-cells .num{font-family:"Fraunces",serif;font-size:1.15rem;font-weight:600;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.cd-cells .lbl{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:.2rem}
 .cart-btn{background:var(--paper);color:var(--night)}
 .cart-count{background:var(--berry);color:#fff}
 .cart-total{font-variant-numeric:tabular-nums}
@@ -334,7 +339,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
 .ship .bar i{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
 .checkout:disabled{background:#8a7f70}
 .pay-note{font-size:.8rem;color:var(--muted);margin-top:.6rem;line-height:1.4}
-@media (max-width:700px){.infobar{grid-template-columns:1fr}.mini-cd{display:none}}
+@media (max-width:700px){.infobar{grid-template-columns:1fr}.cd-mini{display:none}}
 </style>
 </head>
 <body>
@@ -348,7 +353,15 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
       <span><b>Taller de Nochebuena</b><small>Catálogo mayorista · Navidad 2026</small></span>
     </a>
     <div class="nav-actions">
-      <span class="mini-cd">Navidad en <b id="cd-d">00</b> d · <b id="cd-h">00</b>:<b id="cd-m">00</b>:<b id="cd-s">00</b></span>
+      <div class="cd-mini" id="countdown" aria-label="Cuenta regresiva a Nochebuena">
+        <span class="cd-title">Faltan para<br><b>Nochebuena</b></span>
+        <div class="cd-cells">
+          <div class="cell"><div class="num" id="cd-d">00</div><div class="lbl">días</div></div>
+          <div class="cell"><div class="num" id="cd-h">00</div><div class="lbl">horas</div></div>
+          <div class="cell"><div class="num" id="cd-m">00</div><div class="lbl">min</div></div>
+          <div class="cell"><div class="num" id="cd-s">00</div><div class="lbl">seg</div></div>
+        </div>
+      </div>
       <button class="cart-btn" id="cartBtn" aria-label="Abrir pedido">
         <svg width="22" height="18" viewBox="0 0 26 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4h4l3 9h11l3-7H8"/><path d="M5 17c4 2 14 2 19-1"/></svg>
         <span class="t">Tu pedido</span>
@@ -464,31 +477,31 @@ const PRODUCTS = [
     desc:"Siete adornos de línea continua en rojo, verde, amarillo y blanco: árbol, bola con corazón, Papá Noel, bastón, bota, vela y copo de nieve.",
     imgs:["img/07-adornos-colores.webp"], badge:["Nuevo","gold"], stock:64,
     feats:["Livianos y resistentes","Listos para colgar","4 colores"],
-    vars:[{l:"Set × 7",p:13200}] },
+    vars:[{l:"Set × 7",p:14100}] },
 
   { id:"estrellas", cat:"deco", name:"Trio de estrellas Nordicas",
     desc:"Tres estrellas blancas en distintos tamaños para vestir la repisa, el aparador o la mesa ratona con un estilo limpio y escandinavo.",
     imgs:["img/13-estrellas.webp"], badge:["Nuevo","gold"], stock:30,
     feats:["3 tamaños","Se paran solas","Blanco mate"],
-    vars:[{l:"Trío",p:6200}] },
+    vars:[{l:"Trío",p:9200}] },
 
   { id:"esquinero", cat:"pared", name:"Esquinero “Trineo Mágico”",
     desc:"Silueta negra para el marco de la puerta: Papá Noel en su trineo, renos al vuelo, duendes y el arbolito con el Merry Christmas. El adorno que todos fotografían.",
     imgs:["img/03-esquinero-trineo.webp"], stock:9,
     feats:["Calado detallado","Se fija con cinta doble faz (no incluida)","≈ 60 × 45 cm"],
-    vars:[{l:"Negro",p:10500}] },
+    vars:[{l:"Negro",p:12600}] },
 
   { id:"servilleteros-glitter", cat:"mesa", name:"Servilleteros Rojos × 6",
     desc:"Muñeco de nieve, estrella, Papá Noel, regalo y dos renos con brillo rojo. Cada invitado con su servilleta distinta.",
     imgs:["img/10-servilleteros-glitter.webp"], badge:["Para la cena del 24","green"], stock:40,
     feats:["6 diseños distintos","Filamento rojo con brillo","Reutilizables"],
-    vars:[{l:"Set × 6",p:13500}] },
+    vars:[{l:"Set × 6",p:14400}] },
 
   { id:"duendes", cat:"deco", name:"Duendes de la Suerte × 4",
     desc:"Cuatro gnomos en silueta con gorros a lunares, rayas y corazones: uno brinda, otro trae un chanchito, otro un trébol. Perfectos para Navidad y Año Nuevo.",
     imgs:["img/05-duendes.webp"], badge:["Navidad + Año Nuevo","gold"], stock:18,
     feats:["Base incluida","≈ 25 cm de alto","Negro mate"],
-    vars:[{l:"Set × 4",p:11400}] },
+    vars:[{l:"Set × 4",p:13000}] },
 
   { id:"posavasos", cat:"mesa", name:"Posavasos Polo Norte", unit:true,
     desc:"Posavasos negros con relieve, en cuatro diseños: Papá Noel, el reno, el muñeco de nieve y el arbolito. El precio es por unidad.",
@@ -500,31 +513,31 @@ const PRODUCTS = [
     desc:"Bandejitas decorativas con forma de pino para decorar la mesa o guardar llaves, velas y adornos. Se apilan y combinan en rojo y verde.",
     imgs:["img/12-bandejas-galletitas.webp","img/11-bandejas-pino-a.webp"], badge:["Apilables","green"], stock:50,
     feats:["Apilables","Rojo o verde","≈ 20 cm de largo"],
-    vars:[{l:"Set × 3",p:14900}] },
+    vars:[{l:"Set × 3",p:7400}] },
 
   { id:"trio-pinos", cat:"deco", name:"Trios de Pinos",
     desc:"Tres árboles de trazo negro con su base. Decoración minimalista que queda bien todo diciembre en un estante o escritorio.",
     imgs:["img/02-trio-pinos.webp"], badge:["Minimalista","green"], stock:15,
     feats:["Negro mate","Base incluida","≈ 25 cm de ancho"],
-    vars:[{l:"Negro",p:7200}] },
+    vars:[{l:"Negro",p:9600}] },
 
   { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
     desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. Se pegan y se despegan sin dejar marca.",
     imgs:["img/01-vinilos-ventana.webp"], badge:["Fácil de colocar",""], stock:45,
     feats:["Para vidrio o pared","Removibles"],
-    vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
+    vars:[{l:"Negro",p:25600},{l:"Blanco",p:25600}] },
 
   { id:"servilleteros-calados", cat:"mesa", name:"Servilleteros Calados",
     desc:"Estrella, casita de jengibre o pino con calado tipo encaje. Un detalle blanco que se destaca sobre servilletas rojas.",
     imgs:["img/06-servilleteros-calados.webp"], badge:["Diseño exclusivo","gold"], stock:12,
     feats:["Calado tipo encaje","3 diseños","Blanco"],
-    vars:[{l:"Estrella",p:25400},{l:"Casita de jengibre",p:27600},{l:"Pino",p:23900}] },
+    vars:[{l:"Estrella",p:27100},{l:"Casita de jengibre",p:29500},{l:"Pino",p:25500}] },
 
   { id:"reno", cat:"mesa", name:"Servilletero Reno",
     desc:"Anillo con astas de reno en verde petróleo. Simple, distinto y con mucha onda para una mesa moderna.",
     imgs:["img/04-servilletero-reno.webp"], stock:6,
     feats:["Verde petróleo","Liviano","Limpiar con paño húmedo"],
-    vars:[{l:"Unidad",p:11100}] },
+    vars:[{l:"Unidad",p:10800}] },
 ];
 
 const MIN_ORDER = 300000, DEPOSIT = 0.15;
