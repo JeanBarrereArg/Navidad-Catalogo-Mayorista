@@ -195,6 +195,7 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 .m-gal{padding:14px}
 .m-main{aspect-ratio:1/1;border-radius:20px;overflow:hidden;background:#efe6d6}
 .m-main img{width:100%;height:100%;object-fit:cover}
+.m-main.wide{aspect-ratio:1376/768}
 .m-thumbs{display:flex;gap:8px;margin-top:10px}
 .m-thumbs button{width:74px;height:74px;border-radius:12px;overflow:hidden;border:2px solid transparent;opacity:.7}
 .m-thumbs button.on{border-color:var(--berry);opacity:1}
@@ -523,7 +524,7 @@ const PRODUCTS = [
 
   { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
     desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. No incluye la tira para colgar.",
-    imgs:["img/01-vinilos-ventana.webp"], stock:45,
+    imgs:["img/01-adornos-colgantes.webp"], wide:true, stock:45,
     feats:["Para vidrio o pared","Sin tira para colgar"],
     vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
 
@@ -615,6 +616,7 @@ $("#grid").addEventListener("click",e=>{
 function openModal(id){
   current = PRODUCTS.find(p=>p.id===id); curVar = 0; curQty = 1;
   const p = current;
+  $(".m-main").classList.toggle("wide",!!p.wide);
   $("#mImg").src = p.imgs[0]; $("#mImg").alt = p.name;
   $("#mThumbs").innerHTML = p.imgs.length>1 ? p.imgs.map((s,i)=>`<button class="${i?"":"on"}" data-src="${s}"><img src="${s}" alt=""></button>`).join("") : "";
   $("#mCat").textContent = CATS[p.cat];
