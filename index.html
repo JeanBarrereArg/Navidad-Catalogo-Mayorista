@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taller de Nochebuena · Colección Navidad 2026</title>
+<title>Taller de Nochebuena · Catálogo Mayorista Navidad 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -314,9 +314,30 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 .wa-fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPulse 2.2s ease-out infinite;pointer-events:none}
 @keyframes waPulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
 @media(max-width:600px){.wa-fab{right:14px;bottom:14px}}
+/* ---------- Mayorista ---------- */
+header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filter:none}
+.logo-mark{box-shadow:none}
+.mini-cd{font-size:.82rem;white-space:nowrap;opacity:.95}
+.mini-cd b{font-weight:600;font-variant-numeric:tabular-nums}
+.cart-btn{background:var(--paper);color:var(--night)}
+.cart-count{background:var(--berry);color:#fff}
+.cart-total{font-variant-numeric:tabular-nums}
+.cart-total:empty{display:none}
+.infobar{max-width:1280px;margin:1.6rem auto 0;padding:0 1.4rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.infobar div{background:#f3e7cf;border-radius:14px;padding:1rem;text-align:center;font-size:.92rem;line-height:1.35;color:var(--muted)}
+.infobar b{display:block;font-family:"Fraunces",serif;font-size:1.3rem;font-weight:600;color:var(--pine);margin-bottom:.15rem}
+.wa-only{text-align:center;color:var(--muted);font-size:.92rem;margin-top:1rem;padding:0 1.4rem}
+.wa-only b{color:var(--berry);font-weight:600}
+.section{padding-top:3rem}
+.section-head{margin-bottom:1.4rem}
+.toolbar{margin-bottom:3rem}
+.ship .bar i{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.checkout:disabled{background:#8a7f70}
+.pay-note{font-size:.8rem;color:var(--muted);margin-top:.6rem;line-height:1.4}
+@media (max-width:700px){.infobar{grid-template-columns:1fr}.mini-cd{display:none}}
 </style>
 </head>
-<body class="lights">
+<body>
 
 <canvas id="snow" aria-hidden="true"></canvas>
 
@@ -324,63 +345,32 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
   <nav class="nav">
     <a href="#" class="logo" aria-label="Inicio">
       <span class="logo-mark">N</span>
-      <span><b>Taller de Nochebuena</b><small>Colección Navidad 2026</small></span>
+      <span><b>Taller de Nochebuena</b><small>Catálogo mayorista · Navidad 2026</small></span>
     </a>
     <div class="nav-actions">
-      <button class="switch" id="lightSwitch" aria-pressed="true" title="Encender / apagar luces">
-        <i></i><span class="t">Luces</span>
-      </button>
-      <button class="cart-btn" id="cartBtn" aria-label="Abrir trineo">
+      <span class="mini-cd">Navidad en <b id="cd-d">00</b> d · <b id="cd-h">00</b>:<b id="cd-m">00</b>:<b id="cd-s">00</b></span>
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir pedido">
         <svg width="22" height="18" viewBox="0 0 26 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4h4l3 9h11l3-7H8"/><path d="M5 17c4 2 14 2 19-1"/></svg>
-        <span class="t">Tu trineo</span>
+        <span class="t">Tu pedido</span>
+        <span class="cart-total" id="cartTotal"></span>
         <span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <svg class="garland" id="garland" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-    <path class="wire" id="wire" d="M-20,8 Q150,96 320,22 T660,22 T1000,22 T1340,22"/>
-  </svg>
-
-  <div class="hero-inner">
-    <div>
-      <span class="eyebrow">Edición limitada · Navidad 2026</span>
-      <h1>La magia de Navidad, <em>pieza por pieza.</em></h1>
-      <p class="lead">Diseñados e impresos en 3D en nuestro taller: adornos, centros de mesa y siluetas para que tu casa se sienta Nochebuena desde el primer día de diciembre. Diseños originales, en cantidades limitadas.</p>
-      <div class="cta-row">
-        <a href="#catalogo" class="btn btn-gold">Ver el catálogo
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M3 9l5 5 5-5"/></svg></a>
-      </div>
-      <div class="wa-note"><span class="wa-dot">📲</span><span><b>Todos los pedidos se hacen únicamente por WhatsApp.</b> Armá tu trineo y lo enviás por el chat.</span></div>
-      <div class="countdown-title">Faltan para <b>Nochebuena</b></div>
-      <div class="countdown" id="countdown">
-        <div class="cell"><div class="num" id="cd-d">00</div><div class="lbl">días</div></div>
-        <div class="cell"><div class="num" id="cd-h">00</div><div class="lbl">horas</div></div>
-        <div class="cell"><div class="num" id="cd-m">00</div><div class="lbl">min</div></div>
-        <div class="cell"><div class="num" id="cd-s">00</div><div class="lbl">seg</div></div>
-      </div>
-    </div>
-
-    <div class="hang-stage" aria-label="Destacados">
-      <div class="polaroid p1" data-open="esquinero"><img src="img/03-esquinero-trineo.webp" alt="Esquinero Trineo Mágico"><span class="hand">para tu puerta 🚪</span></div>
-      <div class="polaroid p2" data-open="adornos"><img src="img/07-adornos-colores.webp" alt="Adornos de colores"><span class="hand">para el arbolito</span></div>
-      <div class="polaroid p3" data-open="estrellas"><img src="img/13-estrellas.webp" alt="Estrellas blancas"><span class="hand">¡nuevas!</span></div>
-    </div>
-  </div>
-
-  <svg class="hero-wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-    <path fill="#fbf7ef" d="M0,60 C120,20 220,90 360,64 C500,38 560,96 720,70 C880,44 960,100 1110,66 C1260,32 1340,80 1440,56 L1440,110 L0,110 Z"/>
-  </svg>
+<section class="infobar">
+  <div><b>$300.000</b>Pedido mínimo, podés combinar productos</div>
+  <div><b>Entrega a domicilio</b>No hacemos envíos por correo</div>
+  <div><b>Seña del 15%</b>Transferencia o efectivo</div>
 </section>
+<p class="wa-only"><b>Los pedidos se hacen únicamente por WhatsApp.</b> Armá tu pedido y lo enviás por el chat.</p>
 
 <!-- ================= CATÁLOGO ================= -->
 <section class="section" id="catalogo">
   <div class="section-head reveal">
-    <h2>El catálogo<br><em>de esta Navidad</em></h2>
-    <p>Elegí por ambiente: la mesa, los adornos o puertas y ventanas. Tocá cualquier foto para ver detalles y variantes.</p>
+    <h2>Catálogo <em>mayorista</em></h2>
+    <p>Precios por mayor en pesos argentinos. Tocá cualquier foto para ver detalles y variantes.</p>
   </div>
 
   <div class="toolbar">
@@ -395,35 +385,11 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
   <div class="grid" id="grid"></div>
 </section>
 
-<!-- ================= COMBO ================= -->
-<section class="combo reveal" id="combo">
-  <div class="combo-box">
-    <div class="combo-txt">
-      <span class="eyebrow" style="color:#fff">Combo de la temporada</span>
-      <h2>Mesa de <em>Nochebuena</em>, lista en un clic.</h2>
-      <p style="opacity:.85;line-height:1.6">Todo lo que necesitás para una mesa que se lleva todas las fotos de la noche del 24.</p>
-      <ul>
-        <li>Servilleteros rojos × 6</li>
-        <li>Posavasos navideño (1 unidad)</li>
-        <li>Bandejas Pino x 3</li>
-      </ul>
-      <div class="combo-price"><b id="comboPrice"></b></div>
-      <button class="btn btn-gold" id="comboBtn">Sumar el combo al trineo</button>
-      <p class="print-note">🖨️ Se imprime por encargo: entrega en 4 a 7 días. Pedidos hasta el 12/12.</p>
-    </div>
-    <div class="combo-imgs">
-      <img src="img/10-servilleteros-glitter.webp" alt="Servilleteros rojos">
-      <img src="img/09-posavasos.webp" alt="Posavasos">
-      <img src="img/12-bandejas-galletitas.webp" alt="Bandejas pino">
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wa-end">
     <div>
-      <h3>Los pedidos se realizan únicamente por WhatsApp</h3>
-      <p>Armá tu trineo, enviá el pedido por el chat y te pasamos los datos para la transferencia.</p>
+      <h3>Pedidos mayoristas únicamente por WhatsApp</h3>
+      <p>Armá tu pedido (mínimo $300.000), enviálo por el chat y coordinamos la seña del 15% y la entrega a domicilio.</p>
     </div>
     <a class="btn btn-wa wa-link" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
@@ -435,10 +401,13 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
       <p><b>Atención</b><br>Lunes a sábado · 9 a 20 h<br>Pedidos únicamente por WhatsApp</p>
     </div>
     <div>
-      <p><b>Entregas</b><br>Retiro sin cargo<br>Envíos a todo el país</p>
+      <p><b>Entregas</b><br>A domicilio<br>No realizamos envíos por correo</p>
+    </div>
+    <div>
+      <p><b>Pagos</b><br>Seña del 15%<br>Transferencia o efectivo</p>
     </div>
   </div>
-  <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios sugeridos en pesos argentinos (ARS)</span></div>
+  <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios mayoristas en pesos argentinos (ARS)</span></div>
 </footer>
 
 <!-- ================= MODAL ================= -->
@@ -458,16 +427,16 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
     <div class="m-price" id="mPrice"></div>
     <div class="m-buy">
       <div class="qty"><button id="mMinus" aria-label="Menos">−</button><span id="mQty">1</span><button id="mPlus" aria-label="Más">+</button></div>
-      <button class="add" id="mAdd" style="padding:1rem">Sumar al trineo</button>
+      <button class="add" id="mAdd" style="padding:1rem">Sumar al pedido</button>
     </div>
   </div>
 </div>
 
 <!-- ================= TRINEO ================= -->
-<aside class="drawer" id="drawer" aria-label="Tu trineo">
+<aside class="drawer" id="drawer" aria-label="Tu pedido">
   <div class="d-head">
     <button class="x" data-close aria-label="Cerrar">×</button>
-    <h3>Tu trineo 🛷</h3>
+    <h3>Tu pedido 🛷</h3>
     <div class="ship" id="ship"></div>
   </div>
   <div class="d-body" id="dBody"></div>
@@ -479,7 +448,7 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 <script>
 // >>> Cambiá este número por el de tu negocio (código de país + número, sin "+" ni espacios)
 const WA_NUMBER = "5491136826699";
-const WA_HELLO = "Hola! Quiero consultar por los adornos navideños 🎄";
+const WA_HELLO = "Hola! Quiero consultar por el catálogo mayorista navideño 🎄";
 window.addEventListener("DOMContentLoaded",()=>{ const u="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_HELLO); document.getElementById("waFab").href=u; document.querySelectorAll(".wa-link").forEach(a=>a.href=u); });
 /* =========================================================
    DATOS DEL CATÁLOGO (precios sugeridos ARS)
@@ -558,19 +527,14 @@ const PRODUCTS = [
     vars:[{l:"Unidad",p:11100}] },
 ];
 
-const COMBO = { id:"combo-mesa", name:"Combo Mesa de Nochebuena", img:"img/10-servilleteros-glitter.webp",
-  parts:[13500,9500,14900] };
-COMBO.price = COMBO.parts.reduce((a,b)=>a+b,0);
-
-const SHIP_COST = 6500, GIFT_COST = 1500;
+const MIN_ORDER = 300000, DEPOSIT = 0.15;
 
 /* ========================================================= */
 const $ = s => document.querySelector(s);
 const money = n => "$" + n.toLocaleString("es-AR");
 let filter = "all", sortBy = "feat";
 let cart = [];            // {key,id,name,var,price,qty,img}
-let giftWrap = false;
-let delivery = "Envío a domicilio";   // o "Retiro sin cargo"
+let payMethod = "Transferencia";
 let step = "cart";        // cart | form | done
 let current = null, curVar = 0, curQty = 1;
 
@@ -611,7 +575,7 @@ function renderGrid(){
           <div class="card-foot">
             <button class="add" data-add="${p.id}">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>
-              Sumar al trineo</button>
+              Sumar al pedido</button>
           </div>
         </div>
       </div>
@@ -626,14 +590,13 @@ $("#grid").addEventListener("click",e=>{
     const p = PRODUCTS.find(x=>x.id===add.dataset.add);
     const img = add.closest(".card").querySelector(".thumb img");
     addToCart(p,0,1,img);
-    add.classList.add("done"); add.innerHTML = "✓ ¡En el trineo!";
-    setTimeout(()=>{ add.classList.remove("done"); add.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg> Sumar al trineo`; },1600);
+    add.classList.add("done"); add.innerHTML = "✓ ¡En tu pedido!";
+    setTimeout(()=>{ add.classList.remove("done"); add.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg> Sumar al pedido`; },1600);
     return;
   }
   const open = e.target.closest("[data-open]");
   if(open) openModal(open.dataset.open);
 });
-document.querySelectorAll(".polaroid").forEach(el=>el.addEventListener("click",()=>openModal(el.dataset.open)));
 
 /* ---------- Modal ---------- */
 function openModal(id){
@@ -671,7 +634,7 @@ $("#overlay").onclick = closeAll;
 document.addEventListener("click",e=>{ if(e.target.closest("[data-close]")) closeAll(); });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeAll(); });
 
-/* ---------- Carrito ---------- */
+/* ---------- Pedido ---------- */
 function addToCart(p,vi,qty,imgEl){
   const v = p.vars[vi];
   const key = p.id+"|"+vi;
@@ -679,34 +642,31 @@ function addToCart(p,vi,qty,imgEl){
   if(ex) ex.qty += qty;
   else cart.push({key,id:p.id,name:p.name,var:p.vars.length>1?v.l:"",price:v.p,qty,img:p.imgs[0]});
   flyToCart(imgEl);
-  toast(`<span>🎄</span><span><b>${p.name}</b> se subió al trineo</span>`);
+  toast(`<span>🎄</span><span><b>${p.name}</b> se sumó a tu pedido</span>`);
   renderCart();
 }
-function addCombo(){
-  const ex = cart.find(c=>c.key===COMBO.id);
-  if(ex) ex.qty++; else cart.push({key:COMBO.id,id:COMBO.id,name:COMBO.name,var:"Servilleteros × 6 · Posavasos × 1 · Bandejas Pino x 3",price:COMBO.price,qty:1,img:COMBO.img});
-  flyToCart(document.querySelector(".combo-imgs img"));
-  toast(`<span>🎁</span><span><b>Combo Mesa de Nochebuena</b> sumado al trineo</span>`);
-  renderCart();
-}
-$("#comboBtn").onclick = addCombo;
-$("#comboPrice").textContent = money(COMBO.price);
 
 function totals(){
   const sub = cart.reduce((a,c)=>a+c.price*c.qty,0);
-  const ship = sub===0||delivery==="Retiro sin cargo" ? 0 : SHIP_COST;
-  const gift = giftWrap && sub ? GIFT_COST : 0;
-  return {sub,ship,gift,total:sub+ship+gift,count:cart.reduce((a,c)=>a+c.qty,0)};
+  return {sub, deposit:Math.round(sub*DEPOSIT), missing:Math.max(0,MIN_ORDER-sub), count:cart.reduce((a,c)=>a+c.qty,0)};
+}
+function minBar(t){
+  const pct = Math.min(100,Math.round(t.sub/MIN_ORDER*100));
+  const txt = t.sub===0 ? `Pedido mínimo: <b>${money(MIN_ORDER)}</b>`
+    : t.missing ? `Te faltan <b>${money(t.missing)}</b> para el pedido mínimo de ${money(MIN_ORDER)}`
+    : `✓ Superaste el pedido mínimo de ${money(MIN_ORDER)}`;
+  return `${txt}<div class="bar"><i style="width:${pct}%"></i></div>`;
 }
 
 function renderCart(){
   const t = totals();
   $("#cartCount").textContent = t.count;
-  $("#ship").innerHTML = step==="done" ? "Gracias por elegirnos ✨" : "";
+  $("#cartTotal").textContent = t.sub ? money(t.sub) : "";
+  $("#ship").innerHTML = step==="done" ? "Gracias por elegirnos ✨" : minBar(t);
 
   if(step==="cart"){
     if(!cart.length){
-      $("#dBody").innerHTML = `<div class="d-empty"><div class="big">🛷</div><b>Tu trineo está vacío</b><p style="margin-top:.4rem">Papá Noel todavía no cargó nada. ¡Elegí tus favoritos!</p></div>`;
+      $("#dBody").innerHTML = `<div class="d-empty"><div class="big">🛷</div><b>Tu pedido está vacío</b><p style="margin-top:.4rem">Elegí tus productos del catálogo. El pedido mínimo es de ${money(MIN_ORDER)}.</p></div>`;
       $("#dFoot").innerHTML = `<button class="checkout" data-close>Ver el catálogo</button>`;
       return;
     }
@@ -717,26 +677,23 @@ function renderCart(){
           <div class="qty"><button data-q="-1" data-k="${c.key}">−</button><span>${c.qty}</span><button data-q="1" data-k="${c.key}">+</button></div>
         </div>
         <div class="lp">${money(c.price*c.qty)}<br><button class="rm" data-rm="${c.key}">Quitar</button></div>
-      </div>`).join("") +
-      `<label class="gift"><input type="checkbox" id="giftChk" ${giftWrap?"checked":""}> 🎀 <span>Envolver para regalo <b>(+${money(GIFT_COST)})</b></span></label>`;
+      </div>`).join("");
     $("#dFoot").innerHTML = `
-      <div class="tot"><span>Subtotal</span><span>${money(t.sub)}</span></div>
-      <div class="tot"><span>Envío</span><span>${t.ship?money(t.ship):"Sin cargo"}</span></div>
-      ${t.gift?`<div class="tot"><span>Envoltorio</span><span>${money(t.gift)}</span></div>`:""}
-      <div class="tot big"><span>Total</span><span>${money(t.total)}</span></div>
-      <div class="tot" style="font-size:.8rem"><span>Pago por transferencia</span><span>Te pasamos los datos por WhatsApp</span></div>
-      <div class="print-note drawer">🖨️ Se imprime por encargo: entrega en 4 a 7 días. Pedidos hasta el 12/12.</div>
-      <button class="checkout" id="toForm">Continuar para pedir por WhatsApp →</button>`;
+      <div class="tot big"><span>Total del pedido</span><span>${money(t.sub)}</span></div>
+      <div class="tot"><span>Seña del 15%</span><span>${money(t.deposit)}</span></div>
+      <p class="pay-note">Entrega a domicilio. La seña se abona por transferencia o en efectivo.</p>
+      <button class="checkout" id="toForm" ${t.missing?"disabled":""}>${t.missing?`Faltan ${money(t.missing)} para el mínimo`:"Continuar para pedir por WhatsApp →"}</button>`;
   }
   if(step==="form"){
     $("#dBody").innerHTML = `
-      <button class="back" id="backCart">← Volver al trineo</button>
+      <button class="back" id="backCart">← Volver al pedido</button>
       <form class="form" id="orderForm" novalidate>
-        <label for="fName">Nombre y apellido</label><input id="fName" placeholder="Ej: Sofía Gómez">
-        <label>Entrega</label>
+        <label for="fName">Nombre y apellido (o nombre del local)</label><input id="fName" placeholder="Ej: Sofía Gómez">
+        <label for="fAddr">Dirección de entrega</label><input id="fAddr" placeholder="Calle, número, localidad">
+        <label>Forma de pago de la seña</label>
         <div class="radios">
-          <label><input type="radio" name="ent" value="Envío a domicilio" ${delivery==="Envío a domicilio"?"checked":""}>Envío a domicilio</label>
-          <label><input type="radio" name="ent" value="Retiro sin cargo" ${delivery==="Retiro sin cargo"?"checked":""}>Retiro sin cargo</label>
+          <label><input type="radio" name="pay" value="Transferencia" ${payMethod==="Transferencia"?"checked":""}>Transferencia</label>
+          <label><input type="radio" name="pay" value="Efectivo" ${payMethod==="Efectivo"?"checked":""}>Efectivo</label>
         </div>
       </form>`;
     renderFormFoot();
@@ -748,7 +705,7 @@ function renderCart(){
         <div class="gift-anim"><div class="star">⭐</div><div class="box"></div><div class="lid"></div></div>
         <h4>¡Gracias, ${o.name.split(" ")[0]}!<br>Tu pedido está listo para enviar.</h4>
         <span class="order">${o.id}</span>
-        <p>Se abrió WhatsApp con tu pedido y el total a transferir (<b>${money(o.total)}</b>). Enviá el mensaje y te pasamos los datos para la transferencia y coordinamos la ${o.ent==="Retiro sin cargo"?"fecha de retiro":"entrega"} 🎄</p>
+        <p>Se abrió WhatsApp con tu pedido por <b>${money(o.total)}</b>. Enviá el mensaje y coordinamos la seña del 15% (<b>${money(o.deposit)}</b>, ${o.pay.toLowerCase()}) y la entrega a domicilio 🎄</p>
         <p style="font-size:.85rem;opacity:.7">¿No se abrió? Tocá el botón de abajo.</p>
         <a class="wa" href="${o.wa}" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
@@ -769,47 +726,44 @@ $("#drawer").addEventListener("click",e=>{
   if(e.target.closest("#confirm")) confirmOrder();
 });
 $("#drawer").addEventListener("change",e=>{
-  if(e.target.id==="giftChk"){ giftWrap=e.target.checked; renderCart(); }
-  if(e.target.name==="ent"){ delivery=e.target.value; renderFormFoot(); }
+  if(e.target.name==="pay"){ payMethod=e.target.value; }
 });
 
 function renderFormFoot(){
   const t = totals();
   $("#dFoot").innerHTML = `
-    <div class="tot"><span>Subtotal</span><span>${money(t.sub)}</span></div>
-    <div class="tot"><span>Envío</span><span>${t.ship?money(t.ship):"Sin cargo"}</span></div>
-    ${t.gift?`<div class="tot"><span>Envoltorio</span><span>${money(t.gift)}</span></div>`:""}
-    <div class="tot big"><span>Total a transferir</span><span>${money(t.total)}</span></div>
+    <div class="tot big"><span>Total del pedido</span><span>${money(t.sub)}</span></div>
+    <div class="tot"><span>Seña del 15%</span><span>${money(t.deposit)}</span></div>
     <button class="checkout" id="confirm" style="background:#25d366;color:#06361a">Enviar pedido por WhatsApp</button>`;
 }
 
 function confirmOrder(){
-  const n=$("#fName");
-  const bad = n.value.trim().length<3; n.classList.toggle("err",bad);
-  if(bad){ toast(`<span>✋</span><span>Completá tu <b>nombre</b> para enviar el pedido</span>`); return; }
+  const n=$("#fName"), a=$("#fAddr");
+  const badN = n.value.trim().length<3, badA = a.value.trim().length<5;
+  n.classList.toggle("err",badN); a.classList.toggle("err",badA);
+  if(badN||badA){ toast(`<span>✋</span><span>Completá tu <b>nombre</b> y la <b>dirección de entrega</b></span>`); return; }
   const t = totals();
-  const ent = delivery;
+  if(t.missing){ step="cart"; renderCart(); return; }
   const id = "NAV-26-" + Math.floor(1000+Math.random()*9000);
   const lines = cart.map(c=>`• ${c.qty} × ${c.name}${c.var?` (${c.var})`:""} — ${money(c.price*c.qty)}`).join("\n");
   const msg =
-`¡Hola! Quiero hacer este pedido navideño 🎄
+`¡Hola! Quiero hacer este pedido mayorista 🎄
 Pedido: ${id}
 
 ${lines}
 
-Subtotal: ${money(t.sub)}
-${t.gift?`Envoltorio para regalo: ${money(t.gift)}\n`:""}Entrega: ${ent}${t.ship?` (${money(t.ship)})`:" (sin cargo)"}
-*TOTAL A TRANSFERIR: ${money(t.total)}*
+*TOTAL DEL PEDIDO: ${money(t.sub)}*
+Seña del 15%: ${money(t.deposit)} (${payMethod.toLowerCase()})
+Entrega a domicilio: ${a.value.trim()}
 
 Nombre: ${n.value.trim()}
 
-Entiendo que los adornos se imprimen por encargo (entrega en 4 a 7 días).
-¿Me pasás los datos para hacer la transferencia? ¡Gracias! 🙏`;
+¿Me confirmás disponibilidad y coordinamos la seña y la entrega? ¡Gracias! 🙏`;
   const url = "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg);
-  lastOrder = {id,name:n.value.trim(),ent,total:t.total,wa:url};
+  lastOrder = {id,name:n.value.trim(),total:t.sub,deposit:t.deposit,pay:payMethod,wa:url};
   window.open(url,"_blank","noopener");
-  cart = []; giftWrap = false; step = "done";
-  renderCart(); $("#cartCount").textContent = 0;
+  cart = []; step = "done";
+  renderCart();
   celebrate();
 }
 
@@ -854,30 +808,6 @@ function celebrate(){
   [0,250,500].forEach(d=>setTimeout(()=>sparkle(r.left+r.width/2, r.top+180, 22),d+600));
 }
 
-/* ---------- Guirnalda de luces ---------- */
-function buildGarland(){
-  const svg=$("#garland"), path=$("#wire"), len=path.getTotalLength();
-  const colors=["#ff5a4e","#f5d48b","#4fd18b","#ffffff","#ffb347"];
-  const step=46; let i=0;
-  for(let l=20;l<len;l+=step,i++){
-    const p=path.getPointAtLength(l), p2=path.getPointAtLength(Math.min(len,l+1));
-    const ang=Math.atan2(p2.y-p.y,p2.x-p.x)*180/Math.PI;
-    const c=colors[i%colors.length];
-    const g=document.createElementNS("http://www.w3.org/2000/svg","g");
-    g.setAttribute("class","bulb");
-    g.setAttribute("transform",`translate(${p.x},${p.y}) rotate(${ang + (i%2?8:-8)})`);
-    g.style.animationDelay=(Math.random()*2.4).toFixed(2)+"s";
-    g.style.filter=`drop-shadow(0 0 6px ${c})`;
-    g.innerHTML=`<rect x="-3" y="1" width="6" height="6" rx="1" fill="#2c3b33"/><ellipse cx="0" cy="14" rx="5.5" ry="9" fill="${c}"/>`;
-    svg.appendChild(g);
-  }
-}
-$("#lightSwitch").onclick = e=>{
-  const on = document.body.classList.toggle("lights");
-  e.currentTarget.setAttribute("aria-pressed",on);
-  toast(on?`<span>💡</span><span>¡Luces <b>encendidas</b>!</span>`:`<span>🌙</span><span>Luces apagadas</span>`);
-};
-
 /* ---------- Cuenta regresiva ---------- */
 function tick(){
   const target = new Date(2026,11,24,21,0,0); // 24/12 21 h
@@ -898,7 +828,7 @@ function snow(){
   for(let i=0;i<N;i++) flakes.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.6+.6,s:Math.random()*.6+.25,w:Math.random()*Math.PI*2,o:Math.random()*.5+.35});
   (function loop(){
     ctx.clearRect(0,0,W,H);
-    const dark = scrollY < innerHeight*.9;
+    const dark = false;
     for(const f of flakes){
       f.y+=f.s; f.w+=.01; f.x+=Math.sin(f.w)*.35;
       if(f.y>H){ f.y=-5; f.x=Math.random()*W; }
@@ -915,7 +845,7 @@ const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.
 function observeReveal(){ document.querySelectorAll(".reveal:not(.in)").forEach((el,i)=>{ el.style.transitionDelay=(el.classList.contains("card")?(i%4)*90:0)+"ms"; io.observe(el); }); }
 
 /* ---------- Init ---------- */
-renderChips(); renderGrid(); renderCart(); buildGarland(); tick(); setInterval(tick,1000); snow(); observeReveal();
+renderChips(); renderGrid(); renderCart(); tick(); setInterval(tick,1000); snow(); observeReveal();
 </script>
 <a class="wa-fab" id="waFab" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16.04 3C8.86 3 3.04 8.82 3.04 16c0 2.29.6 4.52 1.74 6.49L3 29l6.7-1.76A12.95 12.95 0 0 0 16.04 29C23.22 29 29 23.18 29 16S23.22 3 16.04 3zm0 23.7c-1.95 0-3.86-.53-5.53-1.52l-.4-.24-3.98 1.04 1.06-3.88-.26-.4A10.64 10.64 0 0 1 5.36 16c0-5.9 4.8-10.7 10.68-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.66 10.7zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.5-.16-.72.16-.2.32-.83 1.05-1.02 1.27-.19.2-.38.24-.7.08-.32-.16-1.36-.5-2.58-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.5.14-.66.15-.14.32-.38.48-.57.16-.19.2-.32.32-.54.1-.22.05-.4-.03-.56-.08-.16-.72-1.74-.98-2.38-.26-.62-.52-.54-.72-.55h-.62c-.22 0-.56.08-.86.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.3 3.32c.16.22 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.2 2.02.12.62-.1 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.2-.62-.36z"/></svg></a>
 </body>
