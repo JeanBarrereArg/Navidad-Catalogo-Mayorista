@@ -523,7 +523,7 @@ const PRODUCTS = [
 
   { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
     desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más.",
-    imgs:["img/01-vinilos-ventana.webp"], badge:["Fácil de colocar",""], stock:45,
+    imgs:["img/01-vinilos-ventana.webp"], stock:45,
     feats:["Para vidrio o pared"],
     vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
 
@@ -580,7 +580,7 @@ function renderGrid(){
           <span class="quick">Ver detalle →</span>
         </div>
         <div class="info">
-          <div class="tag">${v.old?`<s>${money(v.old)}</s>`:""}<span class="hand">${p.vars.length>1?"desde ":""}${money(Math.min(...p.vars.map(x=>x.p)))}${p.unit?"<small>c/u</small>":""}</span></div>
+          <div class="tag">${v.old?`<s>${money(v.old)}</s>`:""}<span class="hand">${new Set(p.vars.map(x=>x.p)).size>1?"desde ":""}${money(Math.min(...p.vars.map(x=>x.p)))}${p.unit?"<small>c/u</small>":""}</span></div>
           <span class="cat">${CATS[p.cat]}</span>
           <h3>${p.name}</h3>
           <p>${p.desc.split(". ")[0].replace(/\.$/,"")}.</p>
