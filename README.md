@@ -2,8 +2,8 @@
 
 Catálogo web estático de adornos navideños para pedidos por cantidad.
 
-- Pedido mínimo: $300.000 (se pueden combinar productos)
-- Seña del 15% (transferencia o efectivo)
+- Pedido mínimo: $100.000 (se pueden combinar productos)
+- Seña del 30% (transferencia o efectivo)
 - Entrega a domicilio, sin envíos por correo
 - Los pedidos se hacen únicamente por WhatsApp
 
