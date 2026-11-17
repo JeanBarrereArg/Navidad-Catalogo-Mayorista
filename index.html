@@ -374,9 +374,9 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
 </header>
 
 <section class="infobar">
-  <div><b>$300.000</b>Pedido mínimo, podés combinar productos</div>
+  <div><b>$100.000</b>Pedido mínimo, podés combinar productos</div>
   <div><b>Entrega a domicilio</b>No hacemos envíos por correo</div>
-  <div><b>Seña del 15%</b>Transferencia o efectivo</div>
+  <div><b>Seña del 30%</b>Transferencia o efectivo</div>
 </section>
 <p class="wa-only"><b>Los pedidos se hacen únicamente por WhatsApp.</b> Armá tu pedido y lo enviás por el chat.</p>
 
@@ -403,7 +403,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
   <div class="wa-end">
     <div>
       <h3>Los pedidos se realizan únicamente por WhatsApp</h3>
-      <p>Armá tu pedido (mínimo $300.000), enviálo por el chat y coordinamos la seña del 15% y la entrega a domicilio.</p>
+      <p>Armá tu pedido (mínimo $100.000), enviálo por el chat y coordinamos la seña del 30% y la entrega a domicilio.</p>
     </div>
     <a class="btn btn-wa wa-link" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
@@ -418,7 +418,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
       <p><b>Entregas</b><br>A domicilio<br>No realizamos envíos por correo</p>
     </div>
     <div>
-      <p><b>Pagos</b><br>Seña del 15%<br>Transferencia o efectivo</p>
+      <p><b>Pagos</b><br>Seña del 30%<br>Transferencia o efectivo</p>
     </div>
   </div>
   <div class="copy"><span>© 2026 Taller de Nochebuena</span><span>Precios en pesos argentinos (ARS)</span></div>
@@ -541,7 +541,7 @@ const PRODUCTS = [
     vars:[{l:"Set × 4",p:11100}] },
 ];
 
-const MIN_ORDER = 300000, DEPOSIT = 0.15;
+const MIN_ORDER = 100000, DEPOSIT = 0.30;
 
 /* ========================================================= */
 const $ = s => document.querySelector(s);
@@ -695,7 +695,7 @@ function renderCart(){
       </div>`).join("");
     $("#dFoot").innerHTML = `
       <div class="tot big"><span>Total del pedido</span><span>${money(t.sub)}</span></div>
-      <div class="tot"><span>Seña del 15%</span><span>${money(t.deposit)}</span></div>
+      <div class="tot"><span>Seña del 30%</span><span>${money(t.deposit)}</span></div>
       <p class="pay-note">Entrega a domicilio. La seña se abona por transferencia o en efectivo.</p>
       <button class="checkout" id="toForm" ${t.missing?"disabled":""}>${t.missing?`Faltan ${money(t.missing)} para el mínimo`:"Continuar para pedir por WhatsApp →"}</button>`;
   }
@@ -720,7 +720,7 @@ function renderCart(){
         <div class="gift-anim"><div class="star">⭐</div><div class="box"></div><div class="lid"></div></div>
         <h4>¡Gracias, ${o.name.split(" ")[0]}!<br>Tu pedido está listo para enviar.</h4>
         <span class="order">${o.id}</span>
-        <p>Se abrió WhatsApp con tu pedido por <b>${money(o.total)}</b>. Enviá el mensaje y coordinamos la seña del 15% (<b>${money(o.deposit)}</b>, ${o.pay.toLowerCase()}) y la entrega a domicilio 🎄</p>
+        <p>Se abrió WhatsApp con tu pedido por <b>${money(o.total)}</b>. Enviá el mensaje y coordinamos la seña del 30% (<b>${money(o.deposit)}</b>, ${o.pay.toLowerCase()}) y la entrega a domicilio 🎄</p>
         <p style="font-size:.85rem;opacity:.7">¿No se abrió? Tocá el botón de abajo.</p>
         <a class="wa" href="${o.wa}" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
@@ -748,7 +748,7 @@ function renderFormFoot(){
   const t = totals();
   $("#dFoot").innerHTML = `
     <div class="tot big"><span>Total del pedido</span><span>${money(t.sub)}</span></div>
-    <div class="tot"><span>Seña del 15%</span><span>${money(t.deposit)}</span></div>
+    <div class="tot"><span>Seña del 30%</span><span>${money(t.deposit)}</span></div>
     <button class="checkout" id="confirm" style="background:#25d366;color:#06361a">Enviar pedido por WhatsApp</button>`;
 }
 
@@ -768,7 +768,7 @@ Pedido: ${id}
 ${lines}
 
 *TOTAL DEL PEDIDO: ${money(t.sub)}*
-Seña del 15%: ${money(t.deposit)} (${payMethod.toLowerCase()})
+Seña del 30%: ${money(t.deposit)} (${payMethod.toLowerCase()})
 Entrega a domicilio: ${a.value.trim()}
 
 Nombre: ${n.value.trim()}
