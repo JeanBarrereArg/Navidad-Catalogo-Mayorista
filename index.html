@@ -487,7 +487,7 @@ const PRODUCTS = [
     feats:["Livianos y resistentes","Listos para colgar","4 colores"],
     vars:[{l:"Set × 7",p:12400}] },
 
-  { id:"estrellas", cat:"deco", name:"Trio de estrellas Nordicas",
+  { id:"estrellas", cat:"deco", name:"Trío de estrellas Nórdicas",
     desc:"Tres estrellas blancas en distintos tamaños para vestir la repisa, el aparador o la mesa ratona con un estilo limpio y escandinavo.",
     imgs:["img/13-estrellas.webp"], badge:["Estilo nórdico","gold"], stock:30,
     meds:[["Grande","9,4 × 9,0 × 1,4"],["Mediana","7,5 × 7,2 × 1,4"],["Chica","4,7 × 4,5 × 1,4"]],
@@ -529,7 +529,7 @@ const PRODUCTS = [
     feats:["Apilables","Rojo o verde"],
     vars:[{l:"Dos verdes",p:11300},{l:"Dos rojas",p:11300},{l:"Una verde y una roja",p:11300}] },
 
-  { id:"trio-pinos", cat:"deco", name:"Trios de Pinos",
+  { id:"trio-pinos", cat:"deco", name:"Tríos de Pinos",
     desc:"Tres árboles de trazo negro con su base. Decoración minimalista que queda bien todo diciembre en un estante o escritorio.",
     imgs:["img/02-trio-pinos.webp"], badge:["Minimalista","green"], stock:15,
     meds:[["Set completo","16,0 × 15,3 × 0,3"]],
@@ -677,7 +677,7 @@ function addToCart(p,vi,qty,imgEl){
   const key = p.id+"|"+vi;
   const ex = cart.find(c=>c.key===key);
   if(ex) ex.qty += qty;
-  else cart.push({key,id:p.id,name:p.name,var:p.vars.length>1?v.l:"",price:v.p,qty,img:p.imgs[0]});
+  else cart.push({key,id:p.id,name:p.name,var:p.vars.length>1?v.l:"",price:v.p,qty,img:p.thumb||p.imgs[0]});
   flyToCart(imgEl);
   toast(`<span>🎄</span><span><b>${p.name}</b> se sumó a tu pedido</span>`);
   renderCart();
