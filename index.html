@@ -205,6 +205,11 @@ footer{margin-top:6rem;background:var(--night);color:var(--cream);padding:4rem 1
 .m-info .desc{color:var(--muted);line-height:1.6}
 .m-feats{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0}
 .m-feats span{font-size:.78rem;padding:.35rem .7rem;border-radius:99px;background:#f0e5cf}
+.meds{margin:.2rem 0 .4rem}
+.meds h4{font-size:.82rem;font-weight:600;margin:0 0 .35rem}
+.meds div{display:flex;justify-content:space-between;gap:1rem;font-size:.86rem;padding:.28rem 0;border-bottom:1px solid #eadfca;color:var(--muted)}
+.meds div:last-child{border-bottom:0}
+.meds div b{font-weight:400;white-space:nowrap}
 .opt-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:1rem 0 .5rem}
 .vars{display:flex;flex-wrap:wrap;gap:.5rem}
 .vars button{padding:.6rem .95rem;border-radius:12px;border:1.5px solid #e2d5bd;background:#fff;font-size:.9rem;text-align:left;line-height:1.2}
@@ -437,6 +442,7 @@ header{background:var(--berry);border-bottom:0;color:var(--paper);backdrop-filte
     <h3 class="display" id="mTitle"></h3>
     <p class="desc" id="mDesc"></p>
     <div class="m-feats" id="mFeats"></div>
+    <div class="meds" id="mMeds"></div>
     <div id="mVarsWrap"><div class="opt-label">Elegí tu opción</div><div class="vars" id="mVars"></div></div>
     <div class="m-price" id="mPrice"></div>
     <div class="m-buy">
@@ -475,56 +481,65 @@ const CATS = {
 
 const PRODUCTS = [
   { id:"adornos", cat:"deco", name:"Adornos Trazo navideños x 7",
-    desc:"Siete adornos de línea continua en rojo, verde, amarillo y blanco: árbol, bola con corazón, Papá Noel, bastón, bota, vela y copo de nieve.",
+    desc:"Siete adornos de línea continua en rojo, verde, amarillo y blanco: árbol, adorno de corazón, Papá Noel, bastón, bota, vela y copo de nieve.",
     imgs:["img/07-adornos-colores.webp"], badge:["Para el arbolito","gold"], stock:64,
+    meds:[["Papá Noel","6,6 × 8,3 × 0,4"],["Copo de nieve","6,7 × 8,4 × 0,4"],["Vela","6,3 × 7,7 × 0,4"],["Arbolito","6,0 × 8,5 × 0,4"],["Adorno de corazón","5,6 × 7,4 × 0,4"],["Bastón","5,1 × 7,9 × 0,4"],["Bota","6,4 × 7,7 × 0,4"]],
     feats:["Livianos y resistentes","Listos para colgar","4 colores"],
     vars:[{l:"Set × 7",p:12400}] },
 
   { id:"estrellas", cat:"deco", name:"Trio de estrellas Nordicas",
     desc:"Tres estrellas blancas en distintos tamaños para vestir la repisa, el aparador o la mesa ratona con un estilo limpio y escandinavo.",
     imgs:["img/13-estrellas.webp"], badge:["Estilo nórdico","gold"], stock:30,
+    meds:[["Grande","9,4 × 9,0 × 1,4"],["Mediana","7,5 × 7,2 × 1,4"],["Chica","4,7 × 4,5 × 1,4"]],
     feats:["3 tamaños","Se paran solas","Blanco"],
     vars:[{l:"Trío",p:6900}] },
 
   { id:"esquinero", cat:"pared", name:"Esquinero “Trineo Mágico”",
     desc:"Silueta negra para el marco de la puerta: Papá Noel en su trineo, renos al vuelo, duendes y el arbolito con el Merry Christmas. El adorno que todos fotografían.",
     imgs:["img/03-esquinero-trineo.webp"], stock:9,
+    meds:[["Pieza completa","22,1 × 23,1 × 0,3"]],
     feats:["Calado detallado","Se fija con cinta doble faz (no incluida)"],
     vars:[{l:"Negro",p:10500}] },
 
   { id:"servilleteros-glitter", cat:"mesa", name:"Servilleteros Rojos × 6",
     desc:"Muñeco de nieve, estrella, Papá Noel, regalo y dos renos. Cada invitado con su servilleta distinta.",
     imgs:["img/10-servilleteros-rojos.webp"], badge:["Para la cena del 24","green"], stock:40,
+    meds:[["Ciervo","5,2 × 11,3 × 0,3"],["Cara de ciervo","6,7 × 10,4 × 0,3"],["Estrella","7,3 × 10,9 × 0,3"],["Muñeco de nieve","5,4 × 10,6 × 0,3"],["Papá Noel","5,1 × 10,3 × 0,3"],["Regalo","5,5 × 10,2 × 0,3"]],
     feats:["6 diseños distintos","Filamento rojo","Reutilizables"],
     vars:[{l:"Set × 6",p:13500}] },
 
   { id:"duendes", cat:"deco", name:"Duendes de la Suerte × 4",
     desc:"Cuatro gnomos en silueta con gorros a lunares, rayas y corazones: uno brinda, otro trae un chanchito, otro un trébol. Perfectos para Navidad y Año Nuevo.",
     imgs:["img/05-duendes.webp"], badge:["Navidad + Año Nuevo","gold"], stock:18,
+    meds:[["Con estrellitas","10,3 × 12,7 × 0,2"],["Con chancho","7,9 × 14,9 × 0,2"],["Con flores","6,5 × 14,6 × 0,2"],["Con botella y copa","8,3 × 13,3 × 0,2"]],
     feats:["Base incluida","Negro"],
     vars:[{l:"Set × 4",p:11400}] },
 
   { id:"posavasos", cat:"mesa", name:"Posavasos Polo Norte", unit:true,
     desc:"Posavasos negros con relieve, en cuatro diseños: Papá Noel, el reno, el muñeco de nieve y el arbolito. El precio es por unidad.",
     imgs:["img/09-posavasos.webp"], badge:["Ideal para regalar",""], stock:35,
+    meds:[["Los 4 diseños","9 × 9 × 0,4"]],
     feats:["Con relieve","Precio por unidad"],
     vars:[{l:"Unidad",p:8900}] },
 
   { id:"bandejas", cat:"mesa", name:"Bandejas de Pino x 2",
     desc:"Bandejitas decorativas con forma de pino para decorar la mesa o guardar llaves, velas y adornos. Se apilan y combinan en rojo y verde.",
     imgs:["img/12-bandejas-galletitas.webp","img/11-bandejas-pino-a.webp"], badge:["Apilables","green"], stock:50,
+    meds:[["Cada bandeja","10,5 × 14,2 × 2,1"]],
     feats:["Apilables","Rojo o verde"],
     vars:[{l:"Dos verdes",p:11300},{l:"Dos rojas",p:11300},{l:"Una verde y una roja",p:11300}] },
 
   { id:"trio-pinos", cat:"deco", name:"Trios de Pinos",
     desc:"Tres árboles de trazo negro con su base. Decoración minimalista que queda bien todo diciembre en un estante o escritorio.",
     imgs:["img/02-trio-pinos.webp"], badge:["Minimalista","green"], stock:15,
+    meds:[["Set completo","16,0 × 15,3 × 0,3"]],
     feats:["Negro","Base incluida"],
     vars:[{l:"Negro",p:7200}] },
 
   { id:"vinilos", cat:"pared", name:"Adornos Colgantes x 5",
-    desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita, bota y más. No incluye la tira para colgar. La foto muestra los diseños disponibles. El kit trae 5.",
+    desc:"Kit de 5 adornos para ventanas y vidrios: estrella, reno, muñeco de nieve, campanita y más. No incluye la tira para colgar. La foto muestra los diseños disponibles. El kit trae 5.",
     imgs:["img/01-adornos-colgantes.webp"], thumb:"img/01-adornos-ventana.webp", wide:true, stock:45,
+    meds:[["Regalo","18,4 × 11,6 × 0,1"],["Muñeco de nieve","19,5 × 12,7 × 0,1"],["Cara de reno","19,2 × 12,0 × 0,1"],["Estrella","16,3 × 12,3 × 0,1"],["Arbolito","18,0 × 8,7 × 0,1"],["Bola","15,2 × 8,5 × 0,1"],["Campana","8,1 × 11,9 × 0,1"],["Dulce (bastón)","8,1 × 15,0 × 0,1"],["Cara de Papá Noel","13,7 × 8,1 × 0,1"],["Ángel","8,1 × 12,7 × 0,1"]],
     feats:["Para vidrio o pared","Sin tira para colgar"],
     vars:[{l:"Negro",p:24000},{l:"Blanco",p:24000}] },
 
@@ -532,11 +547,12 @@ const PRODUCTS = [
     desc:"Estrella, casita de jengibre o pino con calado tipo encaje. Un detalle blanco que se destaca sobre servilletas rojas.",
     imgs:["img/06-servilleteros-calados.webp"], badge:["3 diseños para elegir","gold"], stock:12,
     feats:["Calado tipo encaje","3 diseños","Blanco"],
-    vars:[{l:"Estrella",p:25400},{l:"Casita de jengibre",p:27600},{l:"Pino",p:23900}] },
+    vars:[{l:"Estrella",p:25400,m:"11,8 × 16,0 × 2,8"},{l:"Casita de jengibre",p:27600,m:"14,5 × 16,0 × 2,8"},{l:"Pino",p:23900,m:"16,0 × 16,7 × 2,8"}] },
 
   { id:"reno", cat:"mesa", name:"Servilletero Reno x 4",
     desc:"Anillos con astas de reno en verde petróleo. Simples, distintos y con mucha onda para una mesa moderna.",
     imgs:["img/04-servilletero-reno.webp"], stock:6,
+    meds:[["Cada servilletero","8,9 × 8,0 × 0,7"]],
     feats:["Verde petróleo","Livianos","Limpiar con paño húmedo"],
     vars:[{l:"Set × 4",p:11100}] },
 ];
@@ -613,6 +629,11 @@ $("#grid").addEventListener("click",e=>{
 });
 
 /* ---------- Modal ---------- */
+function renderMeds(){
+  const p = current; if(!p) return;
+  const rows = p.meds || (p.vars[curVar]&&p.vars[curVar].m ? [["Servilletero",p.vars[curVar].m]] : []);
+  $("#mMeds").innerHTML = rows.length ? `<h4>Medidas (ancho × alto × espesor, en cm)</h4>`+rows.map(r=>`<div><span>${r[0]}</span><b>${r[1]} cm</b></div>`).join("") : "";
+}
 function openModal(id){
   current = PRODUCTS.find(p=>p.id===id); curVar = 0; curQty = 1;
   const p = current;
@@ -623,6 +644,7 @@ function openModal(id){
   $("#mTitle").textContent = p.name;
   $("#mDesc").textContent = p.desc;
   $("#mFeats").innerHTML = p.feats.map(f=>`<span>${f}</span>`).join("");
+  renderMeds();
   $("#mVarsWrap").style.display = p.vars.length>1 ? "" : "none";
   renderModalVars();
   $("#overlay").classList.add("open"); $("#modal").classList.add("open");
@@ -634,7 +656,7 @@ function renderModalVars(){
   $("#mPrice").innerHTML = money(v.p*curQty) + (v.old?`<small><s>${money(v.old*curQty)}</s></small>`:"") + (curQty>1?`<small>${curQty} × ${money(v.p)}</small>`:"");
   $("#mQty").textContent = curQty;
 }
-$("#mVars").addEventListener("click",e=>{ const b=e.target.closest("[data-v]"); if(!b) return; curVar=+b.dataset.v; renderModalVars(); });
+$("#mVars").addEventListener("click",e=>{ const b=e.target.closest("[data-v]"); if(!b) return; curVar=+b.dataset.v; renderModalVars(); renderMeds(); });
 $("#mThumbs").addEventListener("click",e=>{ const b=e.target.closest("[data-src]"); if(!b) return;
   $("#mImg").src=b.dataset.src; $("#mThumbs").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b)); });
 $("#mMinus").onclick=()=>{ curQty=Math.max(1,curQty-1); renderModalVars(); };
